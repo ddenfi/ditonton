@@ -1,3 +1,4 @@
+import 'package:ditonton/domain/entities/tv_series/tv_series.dart';
 import 'package:equatable/equatable.dart';
 
 class TvSeriesResponse extends Equatable {
@@ -41,9 +42,7 @@ class TvSeriesResponse extends Equatable {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['page'] = page;
-    if (results != null) {
-      map['results'] = results?.map((v) => v.toJson()).toList();
-    }
+    map['results'] = results.map((v) => v.toJson()).toList();
     map['total_pages'] = totalPages;
     map['total_results'] = totalResults;
     return map;
@@ -58,7 +57,7 @@ class TvSeriesModel extends Equatable {
     this.adult,
     this.backdropPath,
     this.genreIds,
-    this.id,
+    required this.id,
     this.originCountry,
     this.originalLanguage,
     this.originalName,
@@ -71,29 +70,31 @@ class TvSeriesModel extends Equatable {
     this.voteCount,
   });
 
-  TvSeriesModel.fromJson(dynamic json) {
-    adult = json['adult'];
-    backdropPath = json['backdrop_path'];
-    genreIds = json['genre_ids'] != null ? json['genre_ids'].cast<int>() : [];
-    id = json['id'];
-    originCountry = json['origin_country'] != null
-        ? json['origin_country'].cast<String>()
-        : [];
-    originalLanguage = json['original_language'];
-    originalName = json['original_name'];
-    overview = json['overview'];
-    popularity = json['popularity'];
-    posterPath = json['poster_path'];
-    firstAirDate = json['first_air_date'];
-    name = json['name'];
-    voteAverage = json['vote_average'];
-    voteCount = json['vote_count'];
+  factory TvSeriesModel.fromJson(dynamic json) {
+    return TvSeriesModel(
+        adult: json['adult'],
+        backdropPath: json['backdrop_path'],
+        genreIds:
+            json['genre_ids'] != null ? json['genre_ids'].cast<int>() : [],
+        id: json['id'],
+        originCountry: json['origin_country'] != null
+            ? json['origin_country'].cast<String>()
+            : [],
+        originalLanguage: json['original_language'],
+        originalName: json['original_name'],
+        overview: json['overview'],
+        popularity: json['popularity'],
+        posterPath: json['poster_path'],
+        firstAirDate: json['first_air_date'],
+        name: json['name'],
+        voteAverage: json['vote_average'],
+        voteCount: json['vote_count']);
   }
 
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
-  int? id;
+  int id;
   List<String>? originCountry;
   String? originalLanguage;
   String? originalName;
@@ -155,6 +156,24 @@ class TvSeriesModel extends Equatable {
     map['vote_average'] = voteAverage;
     map['vote_count'] = voteCount;
     return map;
+  }
+
+  TvSeries toEntity() {
+    return TvSeries(
+        adult: adult,
+        backdropPath: backdropPath,
+        firstAirDate: firstAirDate,
+        genreIds: genreIds,
+        id: id,
+        name: name,
+        originalLanguage: originalLanguage,
+        originalName: originalName,
+        originCountry: originCountry,
+        overview: overview,
+        popularity: popularity,
+        posterPath: posterPath,
+        voteAverage: voteAverage,
+        voteCount: voteCount);
   }
 
   @override

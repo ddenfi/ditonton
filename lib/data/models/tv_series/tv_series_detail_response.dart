@@ -1,6 +1,40 @@
-import 'package:equatable/equatable.dart';
 
-class TvSeriesDetailResponse extends Equatable {
+import 'package:ditonton/domain/entities/tv_series/tv_series_detail.dart';
+
+class TvSeriesDetailResponse {
+  final bool? adult;
+  final String? backdropPath;
+  final List<CreatedBy>? createdBy;
+  final List<int>? episodeRunTime;
+  final DateTime? firstAirDate;
+  final List<Genre>? genres;
+  final String? homepage;
+  final int id;
+  final bool? inProduction;
+  final List<String>? languages;
+  final DateTime? lastAirDate;
+  final LastEpisodeToAir? lastEpisodeToAir;
+  final String? name;
+  final dynamic nextEpisodeToAir;
+  final List<Network>? networks;
+  final int? numberOfEpisodes;
+  final int? numberOfSeasons;
+  final List<String>? originCountry;
+  final String? originalLanguage;
+  final String? originalName;
+  final String? overview;
+  final double? popularity;
+  final String? posterPath;
+  final List<Network>? productionCompanies;
+  final List<ProductionCountry>? productionCountries;
+  final List<Season>? seasons;
+  final List<SpokenLanguage>? spokenLanguages;
+  final String? status;
+  final String? tagline;
+  final String? type;
+  final double? voteAverage;
+  final int? voteCount;
+
   TvSeriesDetailResponse({
     this.adult,
     this.backdropPath,
@@ -9,7 +43,7 @@ class TvSeriesDetailResponse extends Equatable {
     this.firstAirDate,
     this.genres,
     this.homepage,
-    this.id,
+    required this.id,
     this.inProduction,
     this.languages,
     this.lastAirDate,
@@ -36,132 +70,89 @@ class TvSeriesDetailResponse extends Equatable {
     this.voteCount,
   });
 
-  TvSeriesDetailResponse.fromJson(dynamic json) {
-    adult = json['adult'];
-    backdropPath = json['backdrop_path'];
-    if (json['created_by'] != null) {
-      createdBy = [];
-      json['created_by'].forEach((v) {
-        createdBy?.add(CreatedBy.fromJson(v));
-      });
-    }
-    episodeRunTime = json['episode_run_time'] != null
-        ? json['episode_run_time'].cast<int>()
-        : [];
-    firstAirDate = json['first_air_date'];
-    if (json['genres'] != null) {
-      genres = [];
-      json['genres'].forEach((v) {
-        genres?.add(Genres.fromJson(v));
-      });
-    }
-    homepage = json['homepage'];
-    id = json['id'];
-    inProduction = json['in_production'];
-    languages =
-        json['languages'] != null ? json['languages'].cast<String>() : [];
-    lastAirDate = json['last_air_date'];
-    lastEpisodeToAir = json['last_episode_to_air'] != null
-        ? LastEpisodeToAir.fromJson(json['last_episode_to_air'])
-        : null;
-    name = json['name'];
-    nextEpisodeToAir = json['next_episode_to_air'];
-    if (json['networks'] != null) {
-      networks = [];
-      json['networks'].forEach((v) {
-        networks?.add(Networks.fromJson(v));
-      });
-    }
-    numberOfEpisodes = json['number_of_episodes'];
-    numberOfSeasons = json['number_of_seasons'];
-    originCountry = json['origin_country'] != null
-        ? json['origin_country'].cast<String>()
-        : [];
-    originalLanguage = json['original_language'];
-    originalName = json['original_name'];
-    overview = json['overview'];
-    popularity = json['popularity'];
-    posterPath = json['poster_path'];
-    if (json['production_companies'] != null) {
-      productionCompanies = [];
-      json['production_companies'].forEach((v) {
-        productionCompanies?.add(ProductionCompanies.fromJson(v));
-      });
-    }
-    if (json['production_countries'] != null) {
-      productionCountries = [];
-      json['production_countries'].forEach((v) {
-        productionCountries?.add(ProductionCountries.fromJson(v));
-      });
-    }
-    if (json['seasons'] != null) {
-      seasons = [];
-      json['seasons'].forEach((v) {
-        seasons?.add(Seasons.fromJson(v));
-      });
-    }
-    if (json['spoken_languages'] != null) {
-      spokenLanguages = [];
-      json['spoken_languages'].forEach((v) {
-        spokenLanguages?.add(SpokenLanguages.fromJson(v));
-      });
-    }
-    status = json['status'];
-    tagline = json['tagline'];
-    type = json['type'];
-    voteAverage = json['vote_average'];
-    voteCount = json['vote_count'];
-  }
 
-  bool? adult;
-  String? backdropPath;
-  List<CreatedBy>? createdBy;
-  List<int>? episodeRunTime;
-  String? firstAirDate;
-  List<Genres>? genres;
-  String? homepage;
-  int? id;
-  bool? inProduction;
-  List<String>? languages;
-  String? lastAirDate;
-  LastEpisodeToAir? lastEpisodeToAir;
-  String? name;
-  dynamic nextEpisodeToAir;
-  List<Networks>? networks;
-  int? numberOfEpisodes;
-  int? numberOfSeasons;
-  List<String>? originCountry;
-  String? originalLanguage;
-  String? originalName;
-  String? overview;
-  double? popularity;
-  String? posterPath;
-  List<ProductionCompanies>? productionCompanies;
-  List<ProductionCountries>? productionCountries;
-  List<Seasons>? seasons;
-  List<SpokenLanguages>? spokenLanguages;
-  String? status;
-  String? tagline;
-  String? type;
-  double? voteAverage;
-  int? voteCount;
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+    adult,
+    backdropPath,
+    createdBy,
+    episodeRunTime,
+    firstAirDate,
+    genres,
+    homepage,
+    id,
+    inProduction,
+    languages,
+    lastAirDate,
+    lastEpisodeToAir,
+    name,
+    nextEpisodeToAir,
+    networks,
+    numberOfEpisodes,
+    numberOfSeasons,
+    originCountry,
+    originalLanguage,
+    originalName,
+    overview,
+    popularity,
+    posterPath,
+    productionCompanies,
+    productionCountries,
+    seasons,
+    spokenLanguages,
+    status,
+    tagline,
+    type,
+    voteAverage,
+    voteCount,
+  ];
+
+  TvSeriesDetail toEntity() {
+    return TvSeriesDetail(
+        id: id,
+        voteCount: voteCount,
+        voteAverage: voteAverage,
+        posterPath: posterPath,
+        popularity: popularity,
+        overview: overview,
+        originCountry: originCountry,
+        originalName: originalName,
+        originalLanguage: originalLanguage,
+        name: name,
+        firstAirDate: firstAirDate?.toIso8601String(),
+        backdropPath: backdropPath,
+        adult: adult,
+        episodeRunTime: episodeRunTime,
+        genres: genres,
+        homepage: homepage,
+        inProduction: inProduction,
+        languages: languages,
+        lastAirDate: lastAirDate?.toIso8601String(),
+        nextEpisodeToAir: nextEpisodeToAir,
+        numberOfEpisodes: numberOfEpisodes,
+        numberOfSeasons: numberOfSeasons,
+        status: status,
+        tagline: tagline,
+        type: type);
+  }
 
   TvSeriesDetailResponse copyWith({
     bool? adult,
     String? backdropPath,
     List<CreatedBy>? createdBy,
     List<int>? episodeRunTime,
-    String? firstAirDate,
-    List<Genres>? genres,
+    DateTime? firstAirDate,
+    List<Genre>? genres,
     String? homepage,
     int? id,
     bool? inProduction,
     List<String>? languages,
-    String? lastAirDate,
+    DateTime? lastAirDate,
     LastEpisodeToAir? lastEpisodeToAir,
     String? name,
     dynamic nextEpisodeToAir,
-    List<Networks>? networks,
+    List<Network>? networks,
     int? numberOfEpisodes,
     int? numberOfSeasons,
     List<String>? originCountry,
@@ -170,10 +161,10 @@ class TvSeriesDetailResponse extends Equatable {
     String? overview,
     double? popularity,
     String? posterPath,
-    List<ProductionCompanies>? productionCompanies,
-    List<ProductionCountries>? productionCountries,
-    List<Seasons>? seasons,
-    List<SpokenLanguages>? spokenLanguages,
+    List<Network>? productionCompanies,
+    List<ProductionCountry>? productionCountries,
+    List<Season>? seasons,
+    List<SpokenLanguage>? spokenLanguages,
     String? status,
     String? tagline,
     String? type,
@@ -215,363 +206,167 @@ class TvSeriesDetailResponse extends Equatable {
         voteCount: voteCount ?? this.voteCount,
       );
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['adult'] = adult;
-    map['backdrop_path'] = backdropPath;
-    if (createdBy != null) {
-      map['created_by'] = createdBy?.map((v) => v.toJson()).toList();
-    }
-    map['episode_run_time'] = episodeRunTime;
-    map['first_air_date'] = firstAirDate;
-    if (genres != null) {
-      map['genres'] = genres?.map((v) => v.toJson()).toList();
-    }
-    map['homepage'] = homepage;
-    map['id'] = id;
-    map['in_production'] = inProduction;
-    map['languages'] = languages;
-    map['last_air_date'] = lastAirDate;
-    if (lastEpisodeToAir != null) {
-      map['last_episode_to_air'] = lastEpisodeToAir?.toJson();
-    }
-    map['name'] = name;
-    map['next_episode_to_air'] = nextEpisodeToAir;
-    if (networks != null) {
-      map['networks'] = networks?.map((v) => v.toJson()).toList();
-    }
-    map['number_of_episodes'] = numberOfEpisodes;
-    map['number_of_seasons'] = numberOfSeasons;
-    map['origin_country'] = originCountry;
-    map['original_language'] = originalLanguage;
-    map['original_name'] = originalName;
-    map['overview'] = overview;
-    map['popularity'] = popularity;
-    map['poster_path'] = posterPath;
-    if (productionCompanies != null) {
-      map['production_companies'] =
-          productionCompanies?.map((v) => v.toJson()).toList();
-    }
-    if (productionCountries != null) {
-      map['production_countries'] =
-          productionCountries?.map((v) => v.toJson()).toList();
-    }
-    if (seasons != null) {
-      map['seasons'] = seasons?.map((v) => v.toJson()).toList();
-    }
-    if (spokenLanguages != null) {
-      map['spoken_languages'] =
-          spokenLanguages?.map((v) => v.toJson()).toList();
-    }
-    map['status'] = status;
-    map['tagline'] = tagline;
-    map['type'] = type;
-    map['vote_average'] = voteAverage;
-    map['vote_count'] = voteCount;
-    return map;
-  }
+  factory TvSeriesDetailResponse.fromMap(Map<String, dynamic> json) => TvSeriesDetailResponse(
+    adult: json["adult"],
+    backdropPath: json["backdrop_path"],
+    createdBy: json["created_by"] == null ? [] : List<CreatedBy>.from(json["created_by"]!.map((x) => CreatedBy.fromMap(x))),
+    episodeRunTime: json["episode_run_time"] == null ? [] : List<int>.from(json["episode_run_time"]!.map((x) => x)),
+    firstAirDate: json["first_air_date"] == null ? null : DateTime.parse(json["first_air_date"]),
+    genres: json["genres"] == null ? [] : List<Genre>.from(json["genres"]!.map((x) => Genre.fromMap(x))),
+    homepage: json["homepage"],
+    id: json["id"],
+    inProduction: json["in_production"],
+    languages: json["languages"] == null ? [] : List<String>.from(json["languages"]!.map((x) => x)),
+    lastAirDate: json["last_air_date"] == null ? null : DateTime.parse(json["last_air_date"]),
+    lastEpisodeToAir: json["last_episode_to_air"] == null ? null : LastEpisodeToAir.fromMap(json["last_episode_to_air"]),
+    name: json["name"],
+    nextEpisodeToAir: json["next_episode_to_air"],
+    networks: json["networks"] == null ? [] : List<Network>.from(json["networks"]!.map((x) => Network.fromMap(x))),
+    numberOfEpisodes: json["number_of_episodes"],
+    numberOfSeasons: json["number_of_seasons"],
+    originCountry: json["origin_country"] == null ? [] : List<String>.from(json["origin_country"]!.map((x) => x)),
+    originalLanguage: json["original_language"],
+    originalName: json["original_name"],
+    overview: json["overview"],
+    popularity: json["popularity"]?.toDouble(),
+    posterPath: json["poster_path"],
+    productionCompanies: json["production_companies"] == null ? [] : List<Network>.from(json["production_companies"]!.map((x) => Network.fromMap(x))),
+    productionCountries: json["production_countries"] == null ? [] : List<ProductionCountry>.from(json["production_countries"]!.map((x) => ProductionCountry.fromMap(x))),
+    seasons: json["seasons"] == null ? [] : List<Season>.from(json["seasons"]!.map((x) => Season.fromMap(x))),
+    spokenLanguages: json["spoken_languages"] == null ? [] : List<SpokenLanguage>.from(json["spoken_languages"]!.map((x) => SpokenLanguage.fromMap(x))),
+    status: json["status"],
+    tagline: json["tagline"],
+    type: json["type"],
+    voteAverage: json["vote_average"]?.toDouble(),
+    voteCount: json["vote_count"],
+  );
 
-  @override
-  // TODO: implement props
-  List<Object?> get props => [
-        adult,
-        backdropPath,
-        createdBy,
-        episodeRunTime,
-        firstAirDate,
-        genres,
-        homepage,
-        id,
-        inProduction,
-        languages,
-        lastAirDate,
-        lastEpisodeToAir,
-        name,
-        nextEpisodeToAir,
-        networks,
-        numberOfEpisodes,
-        numberOfSeasons,
-        originCountry,
-        originalLanguage,
-        originalName,
-        overview,
-        popularity,
-        posterPath,
-        productionCompanies,
-        productionCountries,
-        seasons,
-        spokenLanguages,
-        status,
-        tagline,
-        type,
-        voteAverage,
-        voteCount,
-      ];
+  Map<String, dynamic> toMap() => {
+    "adult": adult,
+    "backdrop_path": backdropPath,
+    "created_by": createdBy == null ? [] : List<dynamic>.from(createdBy!.map((x) => x.toMap())),
+    "episode_run_time": episodeRunTime == null ? [] : List<dynamic>.from(episodeRunTime!.map((x) => x)),
+    "first_air_date": "${firstAirDate!.year.toString().padLeft(4, '0')}-${firstAirDate!.month.toString().padLeft(2, '0')}-${firstAirDate!.day.toString().padLeft(2, '0')}",
+    "genres": genres == null ? [] : List<dynamic>.from(genres!.map((x) => x.toMap())),
+    "homepage": homepage,
+    "id": id,
+    "in_production": inProduction,
+    "languages": languages == null ? [] : List<dynamic>.from(languages!.map((x) => x)),
+    "last_air_date": "${lastAirDate!.year.toString().padLeft(4, '0')}-${lastAirDate!.month.toString().padLeft(2, '0')}-${lastAirDate!.day.toString().padLeft(2, '0')}",
+    "last_episode_to_air": lastEpisodeToAir?.toMap(),
+    "name": name,
+    "next_episode_to_air": nextEpisodeToAir,
+    "networks": networks == null ? [] : List<dynamic>.from(networks!.map((x) => x.toMap())),
+    "number_of_episodes": numberOfEpisodes,
+    "number_of_seasons": numberOfSeasons,
+    "origin_country": originCountry == null ? [] : List<dynamic>.from(originCountry!.map((x) => x)),
+    "original_language": originalLanguage,
+    "original_name": originalName,
+    "overview": overview,
+    "popularity": popularity,
+    "poster_path": posterPath,
+    "production_companies": productionCompanies == null ? [] : List<dynamic>.from(productionCompanies!.map((x) => x.toMap())),
+    "production_countries": productionCountries == null ? [] : List<dynamic>.from(productionCountries!.map((x) => x.toMap())),
+    "seasons": seasons == null ? [] : List<dynamic>.from(seasons!.map((x) => x.toMap())),
+    "spoken_languages": spokenLanguages == null ? [] : List<dynamic>.from(spokenLanguages!.map((x) => x.toMap())),
+    "status": status,
+    "tagline": tagline,
+    "type": type,
+    "vote_average": voteAverage,
+    "vote_count": voteCount,
+  };
 }
 
-class SpokenLanguages extends Equatable {
-  SpokenLanguages({
-    this.englishName,
-    this.iso6391,
+class CreatedBy {
+  final int? id;
+  final String? creditId;
+  final String? name;
+  final int? gender;
+  final String? profilePath;
+
+  CreatedBy({
+    this.id,
+    this.creditId,
     this.name,
+    this.gender,
+    this.profilePath,
   });
 
-  SpokenLanguages.fromJson(dynamic json) {
-    englishName = json['english_name'];
-    iso6391 = json['iso_639_1'];
-    name = json['name'];
-  }
-
-  String? englishName;
-  String? iso6391;
-  String? name;
-
-  SpokenLanguages copyWith({
-    String? englishName,
-    String? iso6391,
+  CreatedBy copyWith({
+    int? id,
+    String? creditId,
     String? name,
+    int? gender,
+    String? profilePath,
   }) =>
-      SpokenLanguages(
-        englishName: englishName ?? this.englishName,
-        iso6391: iso6391 ?? this.iso6391,
+      CreatedBy(
+        id: id ?? this.id,
+        creditId: creditId ?? this.creditId,
         name: name ?? this.name,
+        gender: gender ?? this.gender,
+        profilePath: profilePath ?? this.profilePath,
       );
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['english_name'] = englishName;
-    map['iso_639_1'] = iso6391;
-    map['name'] = name;
-    return map;
-  }
+  factory CreatedBy.fromMap(Map<String, dynamic> json) => CreatedBy(
+    id: json["id"],
+    creditId: json["credit_id"],
+    name: json["name"],
+    gender: json["gender"],
+    profilePath: json["profile_path"],
+  );
 
-  @override
-  List<Object?> get props => [
-        englishName,
-        iso6391,
-        name,
-      ];
+  Map<String, dynamic> toMap() => {
+    "id": id,
+    "credit_id": creditId,
+    "name": name,
+    "gender": gender,
+    "profile_path": profilePath,
+  };
 }
 
-class Seasons extends Equatable {
-  Seasons({
-    this.airDate,
-    this.episodeCount,
+class Genre {
+  final int? id;
+  final String? name;
+
+  Genre({
     this.id,
     this.name,
-    this.overview,
-    this.posterPath,
-    this.seasonNumber,
-    this.voteAverage,
   });
 
-  Seasons.fromJson(dynamic json) {
-    airDate = json['air_date'];
-    episodeCount = json['episode_count'];
-    id = json['id'];
-    name = json['name'];
-    overview = json['overview'];
-    posterPath = json['poster_path'];
-    seasonNumber = json['season_number'];
-    voteAverage = json['vote_average'];
-  }
-
-  String? airDate;
-  int? episodeCount;
-  int? id;
-  String? name;
-  String? overview;
-  String? posterPath;
-  int? seasonNumber;
-  int? voteAverage;
-
-  Seasons copyWith({
-    String? airDate,
-    int? episodeCount,
+  Genre copyWith({
     int? id,
     String? name,
-    String? overview,
-    String? posterPath,
-    int? seasonNumber,
-    int? voteAverage,
   }) =>
-      Seasons(
-        airDate: airDate ?? this.airDate,
-        episodeCount: episodeCount ?? this.episodeCount,
+      Genre(
         id: id ?? this.id,
         name: name ?? this.name,
-        overview: overview ?? this.overview,
-        posterPath: posterPath ?? this.posterPath,
-        seasonNumber: seasonNumber ?? this.seasonNumber,
-        voteAverage: voteAverage ?? this.voteAverage,
       );
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['air_date'] = airDate;
-    map['episode_count'] = episodeCount;
-    map['id'] = id;
-    map['name'] = name;
-    map['overview'] = overview;
-    map['poster_path'] = posterPath;
-    map['season_number'] = seasonNumber;
-    map['vote_average'] = voteAverage;
-    return map;
-  }
+  factory Genre.fromMap(Map<String, dynamic> json) => Genre(
+    id: json["id"],
+    name: json["name"],
+  );
 
-  @override
-  List<Object?> get props => [
-        airDate,
-        episodeCount,
-        id,
-        name,
-        overview,
-        posterPath,
-        seasonNumber,
-        voteAverage,
-      ];
+  Map<String, dynamic> toMap() => {
+    "id": id,
+    "name": name,
+  };
 }
 
-class ProductionCountries extends Equatable {
-  ProductionCountries({
-    this.iso31661,
-    this.name,
-  });
+class LastEpisodeToAir {
+  final int? id;
+  final String? name;
+  final String? overview;
+  final double? voteAverage;
+  final int? voteCount;
+  final DateTime? airDate;
+  final int? episodeNumber;
+  final String? productionCode;
+  final int? runtime;
+  final int? seasonNumber;
+  final int? showId;
+  final String? stillPath;
 
-  ProductionCountries.fromJson(dynamic json) {
-    iso31661 = json['iso_3166_1'];
-    name = json['name'];
-  }
-
-  String? iso31661;
-  String? name;
-
-  ProductionCountries copyWith({
-    String? iso31661,
-    String? name,
-  }) =>
-      ProductionCountries(
-        iso31661: iso31661 ?? this.iso31661,
-        name: name ?? this.name,
-      );
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['iso_3166_1'] = iso31661;
-    map['name'] = name;
-    return map;
-  }
-
-  @override
-  List<Object?> get props => [
-        iso31661,
-        name,
-      ];
-}
-
-class ProductionCompanies extends Equatable {
-  ProductionCompanies({
-    this.id,
-    this.logoPath,
-    this.name,
-    this.originCountry,
-  });
-
-  ProductionCompanies.fromJson(dynamic json) {
-    id = json['id'];
-    logoPath = json['logo_path'];
-    name = json['name'];
-    originCountry = json['origin_country'];
-  }
-
-  int? id;
-  String? logoPath;
-  String? name;
-  String? originCountry;
-
-  ProductionCompanies copyWith({
-    int? id,
-    String? logoPath,
-    String? name,
-    String? originCountry,
-  }) =>
-      ProductionCompanies(
-        id: id ?? this.id,
-        logoPath: logoPath ?? this.logoPath,
-        name: name ?? this.name,
-        originCountry: originCountry ?? this.originCountry,
-      );
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['logo_path'] = logoPath;
-    map['name'] = name;
-    map['origin_country'] = originCountry;
-    return map;
-  }
-
-  @override
-  List<Object?> get props => [
-        id,
-        logoPath,
-        name,
-        originCountry,
-      ];
-}
-
-class Networks extends Equatable {
-  Networks({
-    this.id,
-    this.logoPath,
-    this.name,
-    this.originCountry,
-  });
-
-  Networks.fromJson(dynamic json) {
-    id = json['id'];
-    logoPath = json['logo_path'];
-    name = json['name'];
-    originCountry = json['origin_country'];
-  }
-
-  int? id;
-  String? logoPath;
-  String? name;
-  String? originCountry;
-
-  Networks copyWith({
-    int? id,
-    String? logoPath,
-    String? name,
-    String? originCountry,
-  }) =>
-      Networks(
-        id: id ?? this.id,
-        logoPath: logoPath ?? this.logoPath,
-        name: name ?? this.name,
-        originCountry: originCountry ?? this.originCountry,
-      );
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['logo_path'] = logoPath;
-    map['name'] = name;
-    map['origin_country'] = originCountry;
-    return map;
-  }
-
-  @override
-  List<Object?> get props => [
-        id,
-        logoPath,
-        name,
-        originCountry,
-      ];
-}
-
-class LastEpisodeToAir extends Equatable {
   LastEpisodeToAir({
     this.id,
     this.name,
@@ -587,41 +382,13 @@ class LastEpisodeToAir extends Equatable {
     this.stillPath,
   });
 
-  LastEpisodeToAir.fromJson(dynamic json) {
-    id = json['id'];
-    name = json['name'];
-    overview = json['overview'];
-    voteAverage = json['vote_average'];
-    voteCount = json['vote_count'];
-    airDate = json['air_date'];
-    episodeNumber = json['episode_number'];
-    productionCode = json['production_code'];
-    runtime = json['runtime'];
-    seasonNumber = json['season_number'];
-    showId = json['show_id'];
-    stillPath = json['still_path'];
-  }
-
-  int? id;
-  String? name;
-  String? overview;
-  double? voteAverage;
-  int? voteCount;
-  String? airDate;
-  int? episodeNumber;
-  String? productionCode;
-  int? runtime;
-  int? seasonNumber;
-  int? showId;
-  String? stillPath;
-
   LastEpisodeToAir copyWith({
     int? id,
     String? name,
     String? overview,
     double? voteAverage,
     int? voteCount,
-    String? airDate,
+    DateTime? airDate,
     int? episodeNumber,
     String? productionCode,
     int? runtime,
@@ -644,131 +411,203 @@ class LastEpisodeToAir extends Equatable {
         stillPath: stillPath ?? this.stillPath,
       );
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['name'] = name;
-    map['overview'] = overview;
-    map['vote_average'] = voteAverage;
-    map['vote_count'] = voteCount;
-    map['air_date'] = airDate;
-    map['episode_number'] = episodeNumber;
-    map['production_code'] = productionCode;
-    map['runtime'] = runtime;
-    map['season_number'] = seasonNumber;
-    map['show_id'] = showId;
-    map['still_path'] = stillPath;
-    return map;
-  }
+  factory LastEpisodeToAir.fromMap(Map<String, dynamic> json) => LastEpisodeToAir(
+    id: json["id"],
+    name: json["name"],
+    overview: json["overview"],
+    voteAverage: json["vote_average"]?.toDouble(),
+    voteCount: json["vote_count"],
+    airDate: json["air_date"] == null ? null : DateTime.parse(json["air_date"]),
+    episodeNumber: json["episode_number"],
+    productionCode: json["production_code"],
+    runtime: json["runtime"],
+    seasonNumber: json["season_number"],
+    showId: json["show_id"],
+    stillPath: json["still_path"],
+  );
 
-  @override
-  List<Object?> get props => [
-        id,
-        name,
-        overview,
-        voteAverage,
-        voteCount,
-        airDate,
-        episodeNumber,
-        productionCode,
-        runtime,
-        seasonNumber,
-        showId,
-        stillPath,
-      ];
+  Map<String, dynamic> toMap() => {
+    "id": id,
+    "name": name,
+    "overview": overview,
+    "vote_average": voteAverage,
+    "vote_count": voteCount,
+    "air_date": "${airDate!.year.toString().padLeft(4, '0')}-${airDate!.month.toString().padLeft(2, '0')}-${airDate!.day.toString().padLeft(2, '0')}",
+    "episode_number": episodeNumber,
+    "production_code": productionCode,
+    "runtime": runtime,
+    "season_number": seasonNumber,
+    "show_id": showId,
+    "still_path": stillPath,
+  };
 }
 
-class Genres extends Equatable {
-  Genres({
+class Network {
+  final int? id;
+  final String? logoPath;
+  final String? name;
+  final String? originCountry;
+
+  Network({
     this.id,
+    this.logoPath,
+    this.name,
+    this.originCountry,
+  });
+
+  Network copyWith({
+    int? id,
+    String? logoPath,
+    String? name,
+    String? originCountry,
+  }) =>
+      Network(
+        id: id ?? this.id,
+        logoPath: logoPath ?? this.logoPath,
+        name: name ?? this.name,
+        originCountry: originCountry ?? this.originCountry,
+      );
+
+  factory Network.fromMap(Map<String, dynamic> json) => Network(
+    id: json["id"],
+    logoPath: json["logo_path"],
+    name: json["name"],
+    originCountry: json["origin_country"],
+  );
+
+  Map<String, dynamic> toMap() => {
+    "id": id,
+    "logo_path": logoPath,
+    "name": name,
+    "origin_country": originCountry,
+  };
+}
+
+class ProductionCountry {
+  final String? iso31661;
+  final String? name;
+
+  ProductionCountry({
+    this.iso31661,
     this.name,
   });
 
-  Genres.fromJson(dynamic json) {
-    id = json['id'];
-    name = json['name'];
-  }
-
-  int? id;
-  String? name;
-
-  Genres copyWith({
-    int? id,
+  ProductionCountry copyWith({
+    String? iso31661,
     String? name,
   }) =>
-      Genres(
-        id: id ?? this.id,
+      ProductionCountry(
+        iso31661: iso31661 ?? this.iso31661,
         name: name ?? this.name,
       );
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['name'] = name;
-    return map;
-  }
+  factory ProductionCountry.fromMap(Map<String, dynamic> json) => ProductionCountry(
+    iso31661: json["iso_3166_1"],
+    name: json["name"],
+  );
 
-  @override
-  List<Object?> get props => [
-        id,
-        name,
-      ];
+  Map<String, dynamic> toMap() => {
+    "iso_3166_1": iso31661,
+    "name": name,
+  };
 }
 
-class CreatedBy extends Equatable {
-  CreatedBy({
+class Season {
+  final DateTime? airDate;
+  final int? episodeCount;
+  final int? id;
+  final String? name;
+  final String? overview;
+  final String? posterPath;
+  final int? seasonNumber;
+  final double? voteAverage;
+
+  Season({
+    this.airDate,
+    this.episodeCount,
     this.id,
-    this.creditId,
     this.name,
-    this.gender,
-    this.profilePath,
+    this.overview,
+    this.posterPath,
+    this.seasonNumber,
+    this.voteAverage,
   });
 
-  CreatedBy.fromJson(dynamic json) {
-    id = json['id'];
-    creditId = json['credit_id'];
-    name = json['name'];
-    gender = json['gender'];
-    profilePath = json['profile_path'];
-  }
-
-  int? id;
-  String? creditId;
-  String? name;
-  int? gender;
-  String? profilePath;
-
-  CreatedBy copyWith({
+  Season copyWith({
+    DateTime? airDate,
+    int? episodeCount,
     int? id,
-    String? creditId,
     String? name,
-    int? gender,
-    String? profilePath,
+    String? overview,
+    String? posterPath,
+    int? seasonNumber,
+    double? voteAverage,
   }) =>
-      CreatedBy(
+      Season(
+        airDate: airDate ?? this.airDate,
+        episodeCount: episodeCount ?? this.episodeCount,
         id: id ?? this.id,
-        creditId: creditId ?? this.creditId,
         name: name ?? this.name,
-        gender: gender ?? this.gender,
-        profilePath: profilePath ?? this.profilePath,
+        overview: overview ?? this.overview,
+        posterPath: posterPath ?? this.posterPath,
+        seasonNumber: seasonNumber ?? this.seasonNumber,
+        voteAverage: voteAverage ?? this.voteAverage,
       );
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['credit_id'] = creditId;
-    map['name'] = name;
-    map['gender'] = gender;
-    map['profile_path'] = profilePath;
-    return map;
-  }
+  factory Season.fromMap(Map<String, dynamic> json) => Season(
+    airDate: json["air_date"] == null ? null : DateTime.parse(json["air_date"]),
+    episodeCount: json["episode_count"],
+    id: json["id"],
+    name: json["name"],
+    overview: json["overview"],
+    posterPath: json["poster_path"],
+    seasonNumber: json["season_number"],
+    voteAverage: json["vote_average"]?.toDouble(),
+  );
 
-  @override
-  List<Object?> get props => [
-        id,
-        creditId,
-        name,
-        gender,
-        profilePath,
-      ];
+  Map<String, dynamic> toMap() => {
+    "air_date": "${airDate!.year.toString().padLeft(4, '0')}-${airDate!.month.toString().padLeft(2, '0')}-${airDate!.day.toString().padLeft(2, '0')}",
+    "episode_count": episodeCount,
+    "id": id,
+    "name": name,
+    "overview": overview,
+    "poster_path": posterPath,
+    "season_number": seasonNumber,
+    "vote_average": voteAverage,
+  };
+}
+
+class SpokenLanguage {
+  final String? englishName;
+  final String? iso6391;
+  final String? name;
+
+  SpokenLanguage({
+    this.englishName,
+    this.iso6391,
+    this.name,
+  });
+
+  SpokenLanguage copyWith({
+    String? englishName,
+    String? iso6391,
+    String? name,
+  }) =>
+      SpokenLanguage(
+        englishName: englishName ?? this.englishName,
+        iso6391: iso6391 ?? this.iso6391,
+        name: name ?? this.name,
+      );
+
+  factory SpokenLanguage.fromMap(Map<String, dynamic> json) => SpokenLanguage(
+    englishName: json["english_name"],
+    iso6391: json["iso_639_1"],
+    name: json["name"],
+  );
+
+  Map<String, dynamic> toMap() => {
+    "english_name": englishName,
+    "iso_639_1": iso6391,
+    "name": name,
+  };
 }

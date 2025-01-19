@@ -1,31 +1,31 @@
 import 'package:ditonton/data/models/show_table.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/tv_series/tv_series.dart';
+import 'package:ditonton/domain/entities/tv_series/tv_series_detail.dart';
 import 'package:equatable/equatable.dart';
 
-class MovieTable extends Equatable with ShowTable {
+class TvSeriesTable extends Equatable with ShowTable {
   final int id;
   final String? title;
   final String? posterPath;
   final String? overview;
   final String? showType;
 
-  MovieTable({
-    this.showType = 'movie',
+  TvSeriesTable({
+    this.showType,
     required this.id,
     required this.title,
     required this.posterPath,
     required this.overview,
   });
 
-  factory MovieTable.fromEntity(MovieDetail movie) => MovieTable(
-      id: movie.id,
-      title: movie.title,
-      posterPath: movie.posterPath,
-      overview: movie.overview,
-      showType: 'movie');
+  factory TvSeriesTable.fromEntity(TvSeriesDetail show) => TvSeriesTable(
+      id: show.id,
+      title: show.name,
+      posterPath: show.posterPath,
+      overview: show.overview,
+      showType: "tv-series");
 
-  factory MovieTable.fromMap(Map<String, dynamic> map) => MovieTable(
+  factory TvSeriesTable.fromMap(Map<String, dynamic> map) => TvSeriesTable(
       id: map['id'],
       title: map['title'],
       posterPath: map['posterPath'],
@@ -41,13 +41,13 @@ class MovieTable extends Equatable with ShowTable {
         'showType': showType
       };
 
-  Movie toEntity() => Movie.watchlist(
+  TvSeries toEntity() => TvSeries.watchList(
         id: id,
         overview: overview,
         posterPath: posterPath,
-        title: title,
+        name: title,
       );
 
   @override
-  List<Object?> get props => [id, title, posterPath, overview, showType];
+  List<Object?> get props => [id, title, posterPath, overview];
 }
