@@ -12,6 +12,7 @@ import 'package:ditonton/presentation/pages/tv_series/popular_tv_series_page.dar
 import 'package:ditonton/presentation/pages/tv_series/top_rated_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv_series/tv_series_detail_page.dart';
 import 'package:ditonton/presentation/pages/tv_series/tv_series_search_page.dart';
+import 'package:ditonton/presentation/pages/tv_series/tv_series_watchlist_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
@@ -23,6 +24,7 @@ import 'package:ditonton/presentation/provider/tv_series/tv_series_list_notifier
 import 'package:ditonton/presentation/provider/tv_series/tv_series_popular_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series/tv_series_search_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series/tv_series_top_rated_notifier.dart';
+import 'package:ditonton/presentation/provider/tv_series/tv_series_watchlist_notifier.dart';
 import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +75,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => di.locator<TvSeriesPopularNotifier>(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => di.locator<TvSeriesWatchlistNotifier>(),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -119,6 +124,9 @@ class MyApp extends StatelessWidget {
               return CupertinoPageRoute(builder: (_) => TopRatedTvSeriesPage());
             case TvSeriesSearchPage.ROUTE_NAME:
               return CupertinoPageRoute(builder: (_) => TvSeriesSearchPage());
+            case TvSeriesWatchlistPage.ROUTE_NAME:
+              return CupertinoPageRoute(
+                  builder: (_) => TvSeriesWatchlistPage());
             default:
               return MaterialPageRoute(builder: (_) {
                 return Scaffold(

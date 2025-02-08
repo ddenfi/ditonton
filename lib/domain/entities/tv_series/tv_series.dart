@@ -13,7 +13,7 @@ class TvSeries extends Equatable {
   String? posterPath;
   String? firstAirDate;
   String? name;
-  double? voteAverage;
+  num? voteAverage;
   int? voteCount;
 
 //<editor-fold desc="Data Methods">
@@ -33,43 +33,6 @@ class TvSeries extends Equatable {
     this.voteAverage,
     this.voteCount,
   });
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is TvSeries &&
-          runtimeType == other.runtimeType &&
-          adult == other.adult &&
-          backdropPath == other.backdropPath &&
-          genreIds == other.genreIds &&
-          id == other.id &&
-          originCountry == other.originCountry &&
-          originalLanguage == other.originalLanguage &&
-          originalName == other.originalName &&
-          overview == other.overview &&
-          popularity == other.popularity &&
-          posterPath == other.posterPath &&
-          firstAirDate == other.firstAirDate &&
-          name == other.name &&
-          voteAverage == other.voteAverage &&
-          voteCount == other.voteCount);
-
-  @override
-  int get hashCode =>
-      adult.hashCode ^
-      backdropPath.hashCode ^
-      genreIds.hashCode ^
-      id.hashCode ^
-      originCountry.hashCode ^
-      originalLanguage.hashCode ^
-      originalName.hashCode ^
-      overview.hashCode ^
-      popularity.hashCode ^
-      posterPath.hashCode ^
-      firstAirDate.hashCode ^
-      name.hashCode ^
-      voteAverage.hashCode ^
-      voteCount.hashCode;
 
   @override
   String toString() {

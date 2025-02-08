@@ -30,7 +30,10 @@ class TvSeriesLocalDataSourceImpl extends TvSeriesLocalDataSource {
   @override
   Future<List<TvSeriesTable>> getWatchlistShows() async {
     final result = await databaseHelper.getWatchlistShows();
-    return result.map((data) => TvSeriesTable.fromMap(data)).toList();
+    return result
+        .map((data) => TvSeriesTable.fromMap(data))
+        .where((tvSeries) => tvSeries.showType == "tv-series")
+        .toList();
   }
 
   @override

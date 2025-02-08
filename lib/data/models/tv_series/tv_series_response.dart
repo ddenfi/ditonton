@@ -87,7 +87,7 @@ class TvSeriesModel extends Equatable {
         posterPath: json['poster_path'],
         firstAirDate: json['first_air_date'],
         name: json['name'],
-        voteAverage: json['vote_average'],
+        voteAverage: (json['vote_average'] as num).toDouble(),
         voteCount: json['vote_count']);
   }
 
