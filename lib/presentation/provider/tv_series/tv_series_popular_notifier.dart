@@ -1,7 +1,5 @@
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/tv_series/tv_series.dart';
-import 'package:ditonton/domain/usecases/get_popular_movies.dart';
 import 'package:ditonton/domain/usecases/tv_series/get_popular_tv_series.dart';
 import 'package:flutter/foundation.dart';
 
@@ -26,12 +24,12 @@ class TvSeriesPopularNotifier extends ChangeNotifier {
     final result = await getPopularTvSeries.execute();
 
     result.fold(
-          (failure) {
+      (failure) {
         _message = failure.message;
         _state = RequestState.Error;
         notifyListeners();
       },
-          (show) {
+      (show) {
         _shows = show;
         _state = RequestState.Loaded;
         notifyListeners();

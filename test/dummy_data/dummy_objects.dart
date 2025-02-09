@@ -60,6 +60,7 @@ final testMovieMap = {
   'overview': 'overview',
   'posterPath': 'posterPath',
   'title': 'title',
+  'showType': 'movie'
 };
 
 //TV Series
@@ -128,6 +129,6 @@ final testTvSeriesMap = {
   'id': 1,
   'overview': 'overview',
   'posterPath': 'posterPath',
-  'title': 'title',
+  'title': 'Squid Game',
   "showType": "tv-series"
 };

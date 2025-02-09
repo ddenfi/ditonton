@@ -1,6 +1,4 @@
-import 'package:ditonton/data/models/movie_model.dart';
 import 'package:ditonton/data/models/tv_series/tv_series_response.dart';
-import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/tv_series/tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -35,7 +33,7 @@ void main() {
     overview: 'overview',
     popularity: 1,
     posterPath: 'posterPath',
-    voteAverage: 1,
+    voteAverage: 1.0,
     voteCount: 1,
   );
 

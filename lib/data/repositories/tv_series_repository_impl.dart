@@ -14,7 +14,8 @@ class TvSeriesRepositoryImpl extends TvSeriesRepositories {
   final TvSeriesRemoteDataSource remoteDataSource;
   final TvSeriesLocalDataSource localDataSource;
 
-  TvSeriesRepositoryImpl({required this.remoteDataSource, required this.localDataSource});
+  TvSeriesRepositoryImpl(
+      {required this.remoteDataSource, required this.localDataSource});
 
   @override
   Future<Either<Failure, List<TvSeries>>> getNowPlayingShow() async {

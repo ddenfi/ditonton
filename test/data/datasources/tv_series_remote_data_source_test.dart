@@ -134,9 +134,11 @@ void main() {
       // arrange
       when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/$tId?$API_KEY')))
           .thenAnswer((_) async => http.Response(
-              readJson('dummy_data/tv_series/tv_series_detail.json'), 200,headers: {
-        HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
-      }));
+                  readJson('dummy_data/tv_series/tv_series_detail.json'), 200,
+                  headers: {
+                    HttpHeaders.contentTypeHeader:
+                        'application/json; charset=utf-8',
+                  }));
       // act
       final result = await dataSource.getShowDetail(tId);
       // assert

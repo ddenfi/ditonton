@@ -1,5 +1,4 @@
 import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/data/datasources/movie_local_data_source.dart';
 import 'package:ditonton/data/datasources/tv_series_local_data_source.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -13,61 +12,62 @@ void main() {
 
   setUp(() {
     mockDatabaseHelper = MockDatabaseHelper();
-    dataSource = TvSeriesLocalDataSourceImpl(databaseHelper: mockDatabaseHelper);
+    dataSource =
+        TvSeriesLocalDataSourceImpl(databaseHelper: mockDatabaseHelper);
   });
 
   group('save watchlist', () {
     test('should return success message when insert to database is success',
-            () async {
-          // arrange
-          when(mockDatabaseHelper.insertWatchlist(testTvSeriesTable))
-              .thenAnswer((_) async => 1);
-          // act
-          final result = await dataSource.insertWatchlist(testTvSeriesTable);
-          // assert
-          expect(result, 'Added to Watchlist');
-        });
+        () async {
+      // arrange
+      when(mockDatabaseHelper.insertWatchlist(testTvSeriesTable))
+          .thenAnswer((_) async => 1);
+      // act
+      final result = await dataSource.insertWatchlist(testTvSeriesTable);
+      // assert
+      expect(result, 'Added to Watchlist');
+    });
 
     test('should throw DatabaseException when insert to database is failed',
-            () async {
-          // arrange
-          when(mockDatabaseHelper.insertWatchlist(testTvSeriesTable))
-              .thenThrow(Exception());
-          // act
-          final call = dataSource.insertWatchlist(testTvSeriesTable);
-          // assert
-          expect(() => call, throwsA(isA<DatabaseException>()));
-        });
+        () async {
+      // arrange
+      when(mockDatabaseHelper.insertWatchlist(testTvSeriesTable))
+          .thenThrow(Exception());
+      // act
+      final call = dataSource.insertWatchlist(testTvSeriesTable);
+      // assert
+      expect(() => call, throwsA(isA<DatabaseException>()));
+    });
   });
 
   group('remove watchlist', () {
     test('should return success message when remove from database is success',
-            () async {
-          // arrange
-          when(mockDatabaseHelper.removeWatchlist(testTvSeriesTable))
-              .thenAnswer((_) async => 1);
-          // act
-          final result = await dataSource.removeWatchlist(testTvSeriesTable);
-          // assert
-          expect(result, 'Removed from Watchlist');
-        });
+        () async {
+      // arrange
+      when(mockDatabaseHelper.removeWatchlist(testTvSeriesTable))
+          .thenAnswer((_) async => 1);
+      // act
+      final result = await dataSource.removeWatchlist(testTvSeriesTable);
+      // assert
+      expect(result, 'Removed from Watchlist');
+    });
 
     test('should throw DatabaseException when remove from database is failed',
-            () async {
-          // arrange
-          when(mockDatabaseHelper.removeWatchlist(testTvSeriesTable))
-              .thenThrow(Exception());
-          // act
-          final call = dataSource.removeWatchlist(testTvSeriesTable);
-          // assert
-          expect(() => call, throwsA(isA<DatabaseException>()));
-        });
+        () async {
+      // arrange
+      when(mockDatabaseHelper.removeWatchlist(testTvSeriesTable))
+          .thenThrow(Exception());
+      // act
+      final call = dataSource.removeWatchlist(testTvSeriesTable);
+      // assert
+      expect(() => call, throwsA(isA<DatabaseException>()));
+    });
   });
 
-  group('Get Movie Detail By Id', () {
+  group('Get TvSeries Detail By Id', () {
     final tId = 1;
 
-    test('should return Movie Detail Table when data is found', () async {
+    test('should return TvSeries Detail Table when data is found', () async {
       // arrange
       when(mockDatabaseHelper.getShowById(tId))
           .thenAnswer((_) async => testTvSeriesMap);
@@ -87,8 +87,8 @@ void main() {
     });
   });
 
-  group('get watchlist movies', () {
-    test('should return list of MovieTable from database', () async {
+  group('get watchlist TvSeries', () {
+    test('should return list of TvSeriesTable from database', () async {
       // arrange
       when(mockDatabaseHelper.getWatchlistShows())
           .thenAnswer((_) async => [testTvSeriesMap]);

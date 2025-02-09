@@ -11,6 +11,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'tv_series_list_notifier_test.mocks.dart';
+
 @GenerateMocks([GetNowPlayingTvSeries, GetPopularTvSeries, GetTopRatedTvSeries])
 void main() {
   late TvSeriesListNotifier provider;
@@ -25,10 +26,10 @@ void main() {
     mockGetPopularTvSeries = MockGetPopularTvSeries();
     mockGetTopRatedTvSeries = MockGetTopRatedTvSeries();
     provider = TvSeriesListNotifier(
-      getTopRatedShows: mockGetTopRatedTvSeries,
-      getPopularShows: mockGetPopularTvSeries,
-      getNowPlayingShows: mockGetNowPlayingTvSeries
-    )..addListener(() {
+        getTopRatedShows: mockGetTopRatedTvSeries,
+        getPopularShows: mockGetPopularTvSeries,
+        getNowPlayingShows: mockGetNowPlayingTvSeries)
+      ..addListener(() {
         listenerCallCount += 1;
       });
   });
@@ -39,7 +40,7 @@ void main() {
       genreIds: [14, 28],
       id: 557,
       overview:
-      'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
+          'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
       popularity: 60.441,
       posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
       voteAverage: 7.2,

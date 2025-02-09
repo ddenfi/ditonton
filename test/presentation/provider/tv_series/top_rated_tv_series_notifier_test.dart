@@ -19,10 +19,11 @@ void main() {
   setUp(() {
     listenerCallCount = 0;
     mockGetTopRatedTvSeries = MockGetTopRatedTvSeries();
-    notifier = TvSeriesTopRatedNotifier(getTopRatedTvSeries: mockGetTopRatedTvSeries)
-      ..addListener(() {
-        listenerCallCount++;
-      });
+    notifier =
+        TvSeriesTopRatedNotifier(getTopRatedTvSeries: mockGetTopRatedTvSeries)
+          ..addListener(() {
+            listenerCallCount++;
+          });
   });
 
   final tTvSeries = TvSeries(
@@ -31,7 +32,7 @@ void main() {
       genreIds: [14, 28],
       id: 557,
       overview:
-      'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
+          'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
       popularity: 60.441,
       posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
       voteAverage: 7.2,
@@ -55,7 +56,8 @@ void main() {
     expect(listenerCallCount, 1);
   });
 
-  test('should change TvSeries data when data is gotten successfully', () async {
+  test('should change TvSeries data when data is gotten successfully',
+      () async {
     // arrange
     when(mockGetTopRatedTvSeries.execute())
         .thenAnswer((_) async => Right(tTvSeriesList));

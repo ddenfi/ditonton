@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:ditonton/data/models/movie_model.dart';
-import 'package:ditonton/data/models/movie_response.dart';
 import 'package:ditonton/data/models/tv_series/tv_series_response.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -64,7 +62,7 @@ void main() {
             "genre_ids": [9648, 18],
             "id": 202250,
             "overview":
-            'To exact vengeance, a young woman infiltrates the household of an influential family as a housemaid to expose their dirty secrets. However, love will get in the way of her revenge plot.',
+                'To exact vengeance, a young woman infiltrates the household of an influential family as a housemaid to expose their dirty secrets. However, love will get in the way of her revenge plot.',
             "popularity": 2797.914,
             "poster_path": '/aoAZgnmMzY9vVy9VWnO3U5PZENh.jpg',
             "vote_average": 5,

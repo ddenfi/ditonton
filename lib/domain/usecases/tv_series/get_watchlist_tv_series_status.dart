@@ -1,11 +1,11 @@
 import 'package:ditonton/domain/repositories/tv_series_repository.dart';
 
-class GetWatchlistTvSeriesStatus{
+class GetWatchlistTvSeriesStatus {
   final TvSeriesRepositories _repo;
 
   GetWatchlistTvSeriesStatus(this._repo);
 
-  Future<bool> execute(int id){
+  Future<bool> execute(int id) {
     return _repo.isAddedToWatchlist(id);
   }
 }
