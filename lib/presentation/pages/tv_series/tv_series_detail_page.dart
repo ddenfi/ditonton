@@ -105,58 +105,121 @@ class DetailContent extends StatelessWidget {
                               show.name ?? "",
                               style: kHeading5,
                             ),
-                            FilledButton(
-                              onPressed: () async {
-                                if (!isAddedWatchlist) {
-                                  await Provider.of<TvSeriesDetailNotifier>(
-                                          context,
-                                          listen: false)
-                                      .addWatchlist(show);
-                                } else {
-                                  await Provider.of<TvSeriesDetailNotifier>(
-                                          context,
-                                          listen: false)
-                                      .removeFromWatchlist(show);
-                                }
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                FilledButton(
+                                  onPressed: () async {
+                                    if (!isAddedWatchlist) {
+                                      await Provider.of<TvSeriesDetailNotifier>(
+                                              context,
+                                              listen: false)
+                                          .addWatchlist(show);
+                                    } else {
+                                      await Provider.of<TvSeriesDetailNotifier>(
+                                              context,
+                                              listen: false)
+                                          .removeFromWatchlist(show);
+                                    }
 
-                                final message =
-                                    Provider.of<TvSeriesDetailNotifier>(context,
-                                            listen: false)
-                                        .watchlistMessage;
+                                    final message =
+                                        Provider.of<TvSeriesDetailNotifier>(
+                                                context,
+                                                listen: false)
+                                            .watchlistMessage;
 
-                                if (message ==
-                                        MovieDetailNotifier
-                                            .watchlistAddSuccessMessage ||
-                                    message ==
-                                        TvSeriesDetailNotifier
-                                            .watchlistRemoveSuccessMessage) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text(message)));
-                                } else {
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        return AlertDialog(
-                                          content: Text(message),
-                                        );
-                                      });
-                                }
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  isAddedWatchlist
-                                      ? Icon(Icons.check)
-                                      : Icon(Icons.add),
-                                  Text('Watchlist'),
-                                ],
-                              ),
+                                    if (message ==
+                                            MovieDetailNotifier
+                                                .watchlistAddSuccessMessage ||
+                                        message ==
+                                            TvSeriesDetailNotifier
+                                                .watchlistRemoveSuccessMessage) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                              SnackBar(content: Text(message)));
+                                    } else {
+                                      showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return AlertDialog(
+                                              content: Text(message),
+                                            );
+                                          });
+                                    }
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      isAddedWatchlist
+                                          ? Icon(Icons.check)
+                                          : Icon(Icons.add),
+                                      Text('Watchlist'),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                      color:
+                                          Colors.grey.shade400.withOpacity(0.7),
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Row(
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Text(
+                                            "Total Season",
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            show.numberOfSeasons.toString(),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24,
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                      VerticalDivider(
+                                        color: Colors.black,
+                                        thickness: 1,
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text(
+                                            "Total Eps",
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            show.numberOfEpisodes.toString(),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24,
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
                             ),
                             Text(
                               _showGenres(show.genres ?? []),
                             ),
                             Text(
-                              _showDuration(0),
+                              _showDuration((show.episodeRunTime?.length != 0)
+                                  ? show.episodeRunTime?.first
+                                  : 0),
                             ),
                             Row(
                               children: [
@@ -292,7 +355,8 @@ class DetailContent extends StatelessWidget {
     return result.substring(0, result.length - 2);
   }
 
-  String _showDuration(int runtime) {
+  String _showDuration(int? runtime) {
+    if (runtime == null) return "0m";
     final int hours = runtime ~/ 60;
     final int minutes = runtime % 60;
 
