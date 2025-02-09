@@ -88,44 +88,6 @@ class TvSeries extends Equatable {
     );
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'adult': this.adult,
-      'backdropPath': this.backdropPath,
-      'genreIds': this.genreIds,
-      'id': this.id,
-      'originCountry': this.originCountry,
-      'originalLanguage': this.originalLanguage,
-      'originalName': this.originalName,
-      'overview': this.overview,
-      'popularity': this.popularity,
-      'posterPath': this.posterPath,
-      'firstAirDate': this.firstAirDate,
-      'name': this.name,
-      'voteAverage': this.voteAverage,
-      'voteCount': this.voteCount,
-    };
-  }
-
-  factory TvSeries.fromJson(Map<String, dynamic> map) {
-    return TvSeries(
-      adult: map['adult'] as bool,
-      backdropPath: map['backdropPath'] as String,
-      genreIds: map['genreIds'] as List<int>,
-      id: map['id'] as int,
-      originCountry: map['originCountry'] as List<String>,
-      originalLanguage: map['originalLanguage'] as String,
-      originalName: map['originalName'] as String,
-      overview: map['overview'] as String,
-      popularity: map['popularity'] as double,
-      posterPath: map['posterPath'] as String,
-      firstAirDate: map['firstAirDate'] as String,
-      name: map['name'] as String,
-      voteAverage: map['voteAverage'] as double,
-      voteCount: map['voteCount'] as int,
-    );
-  }
-
   TvSeries.watchList({
     required this.id,
     required this.overview,
@@ -134,7 +96,6 @@ class TvSeries extends Equatable {
   });
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         adult,
         backdropPath,

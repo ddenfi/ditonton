@@ -1,5 +1,6 @@
-import 'package:ditonton/data/models/tv_series/tv_series_detail_response.dart';
 import 'package:equatable/equatable.dart';
+
+import '../genre.dart';
 
 class TvSeriesDetail extends Equatable {
   TvSeriesDetail({
@@ -108,38 +109,6 @@ class TvSeriesDetail extends Equatable {
         voteAverage: voteAverage ?? this.voteAverage,
         voteCount: voteCount ?? this.voteCount,
       );
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['adult'] = adult;
-    map['backdrop_path'] = backdropPath;
-    map['episode_run_time'] = episodeRunTime;
-    map['first_air_date'] = firstAirDate;
-    if (genres != null) {
-      map['genres'] = genres?.map((v) => v.toMap()).toList();
-    }
-    map['homepage'] = homepage;
-    map['id'] = id;
-    map['in_production'] = inProduction;
-    map['languages'] = languages;
-    map['last_air_date'] = lastAirDate;
-    map['name'] = name;
-    map['next_episode_to_air'] = nextEpisodeToAir;
-    map['number_of_episodes'] = numberOfEpisodes;
-    map['number_of_seasons'] = numberOfSeasons;
-    map['origin_country'] = originCountry;
-    map['original_language'] = originalLanguage;
-    map['original_name'] = originalName;
-    map['overview'] = overview;
-    map['popularity'] = popularity;
-    map['poster_path'] = posterPath;
-    map['status'] = status;
-    map['tagline'] = tagline;
-    map['type'] = type;
-    map['vote_average'] = voteAverage;
-    map['vote_count'] = voteCount;
-    return map;
-  }
 
   @override
   List<Object?> get props => [

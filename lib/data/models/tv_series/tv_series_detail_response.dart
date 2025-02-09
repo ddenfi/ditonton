@@ -1,3 +1,4 @@
+import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/tv_series/tv_series_detail.dart';
 import 'package:equatable/equatable.dart';
 
@@ -6,7 +7,7 @@ class TvSeriesDetailResponse extends Equatable {
   final String? backdropPath;
   final List<int>? episodeRunTime;
   final DateTime? firstAirDate;
-  final List<Genre>? genres;
+  final List<GenreModel>? genres;
   final String? homepage;
   final int id;
   final bool? inProduction;
@@ -101,7 +102,7 @@ class TvSeriesDetailResponse extends Equatable {
         backdropPath: backdropPath,
         adult: adult,
         episodeRunTime: episodeRunTime,
-        genres: genres,
+        genres: this.genres?.map((e) => e.toEntity()).toList(),
         homepage: homepage,
         inProduction: inProduction,
         languages: languages,
@@ -119,7 +120,7 @@ class TvSeriesDetailResponse extends Equatable {
     List<CreatedBy>? createdBy,
     List<int>? episodeRunTime,
     DateTime? firstAirDate,
-    List<Genre>? genres,
+    List<GenreModel>? genres,
     String? homepage,
     int? id,
     bool? inProduction,
@@ -187,7 +188,8 @@ class TvSeriesDetailResponse extends Equatable {
             : DateTime.parse(json["first_air_date"]),
         genres: json["genres"] == null
             ? []
-            : List<Genre>.from(json["genres"]!.map((x) => Genre.fromMap(x))),
+            : List<GenreModel>.from(
+                json["genres"]!.map((x) => GenreModel.fromMap(x))),
         homepage: json["homepage"],
         id: json["id"],
         inProduction: json["in_production"],
@@ -306,25 +308,25 @@ class CreatedBy {
       };
 }
 
-class Genre extends Equatable {
+class GenreModel extends Equatable {
   final int? id;
   final String? name;
 
-  Genre({
+  GenreModel({
     this.id,
     this.name,
   });
 
-  Genre copyWith({
+  GenreModel copyWith({
     int? id,
     String? name,
   }) =>
-      Genre(
+      GenreModel(
         id: id ?? this.id,
         name: name ?? this.name,
       );
 
-  factory Genre.fromMap(Map<String, dynamic> json) => Genre(
+  factory GenreModel.fromMap(Map<String, dynamic> json) => GenreModel(
         id: json["id"],
         name: json["name"],
       );
@@ -334,8 +336,11 @@ class Genre extends Equatable {
         "name": name,
       };
 
+  Genre toEntity() {
+    return Genre(id: id ?? 0, name: name ?? "");
+  }
+
   @override
-  // TODO: implement props
   List<Object?> get props => [id, name];
 }
 
