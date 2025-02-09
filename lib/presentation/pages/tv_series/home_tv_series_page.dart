@@ -130,7 +130,7 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
                     context, PopularTvSeriesPage.ROUTE_NAME),
               ),
               Consumer<TvSeriesListNotifier>(builder: (context, data, child) {
-                final state = data.popularMoviesState;
+                final state = data.popularTvSeriesState;
                 if (state == RequestState.Loading) {
                   return Center(
                     child: CircularProgressIndicator(),
@@ -147,7 +147,7 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
                     context, TopRatedTvSeriesPage.ROUTE_NAME),
               ),
               Consumer<TvSeriesListNotifier>(builder: (context, data, child) {
-                final state = data.topRatedMoviesState;
+                final state = data.topRatedTvSeriesState;
                 if (state == RequestState.Loading) {
                   return Center(
                     child: CircularProgressIndicator(),

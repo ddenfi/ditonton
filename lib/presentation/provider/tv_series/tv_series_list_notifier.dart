@@ -24,7 +24,7 @@ class TvSeriesListNotifier extends ChangeNotifier {
 
   RequestState _popularMoviesState = RequestState.Empty;
 
-  RequestState get popularMoviesState => _popularMoviesState;
+  RequestState get popularTvSeriesState => _popularMoviesState;
 
   var _topRatedShows = <TvSeries>[];
 
@@ -32,7 +32,7 @@ class TvSeriesListNotifier extends ChangeNotifier {
 
   RequestState _topRatedMoviesState = RequestState.Empty;
 
-  RequestState get topRatedMoviesState => _topRatedMoviesState;
+  RequestState get topRatedTvSeriesState => _topRatedMoviesState;
 
   String _message = '';
 

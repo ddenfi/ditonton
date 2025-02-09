@@ -19,7 +19,7 @@ class TvSeriesPopularNotifier extends ChangeNotifier {
   String _message = '';
   String get message => _message;
 
-  Future<void> fetchPopularMovies() async {
+  Future<void> fetchPopularTvSeries() async {
     _state = RequestState.Loading;
     notifyListeners();
 

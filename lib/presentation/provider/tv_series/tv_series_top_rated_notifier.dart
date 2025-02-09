@@ -3,10 +3,11 @@ import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/tv_series/tv_series.dart';
 import 'package:ditonton/domain/usecases/get_top_rated_movies.dart';
 import 'package:ditonton/domain/usecases/tv_series/get_popular_tv_series.dart';
+import 'package:ditonton/domain/usecases/tv_series/get_top_rated_tv_series.dart';
 import 'package:flutter/foundation.dart';
 
 class TvSeriesTopRatedNotifier extends ChangeNotifier {
-  final GetPopularTvSeries getTopRatedTvSeries;
+  final GetTopRatedTvSeries getTopRatedTvSeries;
 
   TvSeriesTopRatedNotifier({required this.getTopRatedTvSeries});
 
@@ -19,7 +20,7 @@ class TvSeriesTopRatedNotifier extends ChangeNotifier {
   String _message = '';
   String get message => _message;
 
-  Future<void> fetchTopRatedMovies() async {
+  Future<void> fetchTopRatedTvSeries() async {
     _state = RequestState.Loading;
     notifyListeners();
 

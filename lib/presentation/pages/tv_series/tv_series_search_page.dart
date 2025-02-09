@@ -24,7 +24,7 @@ class TvSeriesSearchPage extends StatelessWidget {
             TextField(
               onSubmitted: (query) {
                 Provider.of<TvSeriesSearchNotifier>(context, listen: false)
-                    .fetchMovieSearch(query);
+                    .fetchTvSeriesSearch(query);
               },
               decoration: InputDecoration(
                 hintText: 'Search title',
