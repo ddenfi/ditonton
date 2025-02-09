@@ -1,4 +1,4 @@
-abstract class ShowTable {
+mixin ShowTable {
   abstract final int id;
   abstract final String? title;
   abstract final String? posterPath;
