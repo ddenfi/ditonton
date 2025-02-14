@@ -29,6 +29,8 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
     Future.microtask(() {
       Provider.of<TvSeriesDetailNotifier>(context, listen: false)
           .fetchTvSeriesDetail(widget.id);
+      Provider.of<TvSeriesDetailNotifier>(context, listen: false)
+          .loadWatchlistStatus(widget.id);
     });
   }
 
@@ -213,6 +215,9 @@ class DetailContent extends StatelessWidget {
                                   ),
                                 )
                               ],
+                            ),
+                            SizedBox(
+                              height: 16,
                             ),
                             Text(
                               _showGenres(show.genres ?? []),
