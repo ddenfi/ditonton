@@ -1,3 +1,4 @@
+import 'package:ditonton/data/datasources/api_client/tmdb_api_client.dart';
 import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:ditonton/data/datasources/movie_local_data_source.dart';
 import 'package:ditonton/data/datasources/movie_remote_data_source.dart';
@@ -33,6 +34,7 @@ import 'package:ditonton/presentation/provider/popular_movies_notifier.dart';
 import 'package:ditonton/presentation/provider/top_rated_movies_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series/tv_series_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series/tv_series_list_notifier.dart';
+import 'package:ditonton/presentation/provider/tv_series/tv_series_now_playing_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series/tv_series_popular_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series/tv_series_search_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series/tv_series_top_rated_notifier.dart';
@@ -114,7 +116,7 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton<http.Client>(() => TheMovieDbApiClient());
 
   // TV SERIES
 
@@ -143,9 +145,10 @@ void init() {
   locator.registerFactory(
     () => TvSeriesPopularNotifier(getPopularTvSeries: locator()),
   );
-
   locator.registerFactory(
       () => TvSeriesWatchlistNotifier(getWatchlistTvSeries: locator()));
+  locator.registerFactory(
+      () => TvSeriesNowPlayingNotifier(getNowPlayingTvSeries: locator()));
 
   // Use Case
   locator.registerLazySingleton(() => GetNowPlayingTvSeries(locator()));
