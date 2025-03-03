@@ -31,14 +31,3 @@ final class MovieWatchlistSuccess extends MovieWatchlistState {
   @override
   List<Object?> get props => [movies];
 }
-
-final class MovieWatchlistDataState extends MovieWatchlistState {
-  final bool isAddedToWatchlist;
-  final String watchlistMessage;
-
-  MovieWatchlistDataState(
-      {required this.watchlistMessage, required this.isAddedToWatchlist});
-
-  @override
-  List<Object?> get props => [isAddedToWatchlist];
-}

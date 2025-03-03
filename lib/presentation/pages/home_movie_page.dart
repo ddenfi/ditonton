@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/movie.dart';
+import 'package:ditonton/presentation/bloc/now_playing_movies/now_playing_movies_cubit.dart';
+import 'package:ditonton/presentation/bloc/popular_movies/popular_movies_cubit.dart';
+import 'package:ditonton/presentation/bloc/top_rated_movies/top_rated_movies_cubit.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/popular_movies_page.dart';
@@ -9,10 +12,10 @@ import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
 import 'package:ditonton/presentation/pages/tv_series/home_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv_series/tv_series_watchlist_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
-import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 class HomeMoviePage extends StatefulWidget {
@@ -24,11 +27,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(
-        () => Provider.of<MovieListNotifier>(context, listen: false)
-          ..fetchNowPlayingMovies()
-          ..fetchPopularMovies()
-          ..fetchTopRatedMovies());
+    Future.microtask(() {
+      context.read<NowPlayingMoviesCubit>().fetchNowPlayingMovies();
+      context.read<PopularMoviesCubit>().fetchPopularMovies();
+      context.read<TopRatedMoviesCubit>().fetchTopRatedMovies();
+    });
   }
 
   @override
@@ -108,52 +111,64 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 'Now Playing',
                 style: kHeading6,
               ),
-              Consumer<MovieListNotifier>(builder: (context, data, child) {
-                final state = data.nowPlayingState;
-                if (state == RequestState.Loading) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state == RequestState.Loaded) {
-                  return MovieList(data.nowPlayingMovies);
-                } else {
-                  return Text('Failed');
-                }
-              }),
+              BlocBuilder<NowPlayingMoviesCubit, NowPlayingMoviesState>(
+                builder: (context, state) {
+                  switch (state) {
+                    case NowPlayingMoviesLoading():
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    case NowPlayingMoviesError():
+                      return Text(state.message);
+                    case NowPlayingMoviesSuccess():
+                      return MovieList(state.data);
+                    case NowPlayingMoviesInitial():
+                      return SizedBox();
+                  }
+                },
+              ),
               _buildSubHeading(
                 title: 'Popular',
                 onTap: () =>
                     Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
               ),
-              Consumer<MovieListNotifier>(builder: (context, data, child) {
-                final state = data.popularMoviesState;
-                if (state == RequestState.Loading) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state == RequestState.Loaded) {
-                  return MovieList(data.popularMovies);
-                } else {
-                  return Text('Failed');
-                }
-              }),
+              BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
+                builder: (context, state) {
+                  switch (state) {
+                    case PopularMoviesInitial():
+                      return SizedBox();
+                    case PopularMoviesLoading():
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    case PopularMoviesError():
+                      return Text(state.message);
+                    case PopularMoviesSuccess():
+                      return MovieList(state.data);
+                  }
+                },
+              ),
               _buildSubHeading(
                 title: 'Top Rated',
                 onTap: () =>
                     Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
               ),
-              Consumer<MovieListNotifier>(builder: (context, data, child) {
-                final state = data.topRatedMoviesState;
-                if (state == RequestState.Loading) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state == RequestState.Loaded) {
-                  return MovieList(data.topRatedMovies);
-                } else {
-                  return Text('Failed');
-                }
-              }),
+              BlocBuilder<TopRatedMoviesCubit, TopRatedMoviesState>(
+                builder: (context, state) {
+                  switch (state) {
+                    case TopRatedMoviesInitial():
+                      return SizedBox();
+                    case TopRatedMoviesLoading():
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    case TopRatedMoviesError():
+                      return Text(state.message);
+                    case TopRatedMoviesSuccess():
+                      return MovieList(state.data);
+                  }
+                },
+              ),
             ],
           ),
         ),
