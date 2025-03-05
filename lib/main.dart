@@ -1,43 +1,45 @@
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/utils.dart';
-import 'package:ditonton/presentation/bloc/movie_detail/movie_detail_cubit.dart';
-import 'package:ditonton/presentation/bloc/movie_watchlist/movie_watchlist_cubit.dart';
-import 'package:ditonton/presentation/bloc/movie_watchlist_status/movie_watchlist_status_cubit.dart';
-import 'package:ditonton/presentation/bloc/now_playing_movies/now_playing_movies_cubit.dart';
-import 'package:ditonton/presentation/bloc/popular_movies/popular_movies_cubit.dart';
-import 'package:ditonton/presentation/bloc/recommended_movies/recommended_movies_cubit.dart';
-import 'package:ditonton/presentation/bloc/search_movies/search_movies_cubit.dart';
-import 'package:ditonton/presentation/bloc/top_rated_movies/top_rated_movies_cubit.dart';
-import 'package:ditonton/presentation/pages/about_page.dart';
-import 'package:ditonton/presentation/pages/movie_detail_page.dart';
-import 'package:ditonton/presentation/pages/home_movie_page.dart';
-import 'package:ditonton/presentation/pages/popular_movies_page.dart';
-import 'package:ditonton/presentation/pages/search_page.dart';
-import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
-import 'package:ditonton/presentation/pages/tv_series/home_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/tv_series/popular_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/tv_series/top_rated_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/tv_series/tv_series_detail_page.dart';
-import 'package:ditonton/presentation/pages/tv_series/tv_series_now_playing_page.dart';
-import 'package:ditonton/presentation/pages/tv_series/tv_series_search_page.dart';
-import 'package:ditonton/presentation/pages/tv_series/tv_series_watchlist_page.dart';
-import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
+import 'package:core/common/constants.dart';
+import 'package:core/common/utils.dart';
+import 'package:core/presentation/bloc/home_page/home_page_cubit.dart';
+import 'package:core/presentation/pages/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/blocs/movie_detail/movie_detail_cubit.dart';
+import 'package:movie/blocs/movie_watchlist/movie_watchlist_cubit.dart';
+import 'package:movie/blocs/movie_watchlist_status/movie_watchlist_status_cubit.dart';
+import 'package:movie/blocs/now_playing_movies/now_playing_movies_cubit.dart';
+import 'package:movie/blocs/popular_movies/popular_movies_cubit.dart';
+import 'package:movie/blocs/recommended_movies/recommended_movies_cubit.dart';
+import 'package:movie/blocs/search_movies/search_movies_cubit.dart';
+import 'package:movie/blocs/top_rated_movies/top_rated_movies_cubit.dart';
+import 'package:movie/pages/about_page.dart';
+import 'package:movie/pages/home_movie_page.dart';
+import 'package:movie/pages/movie_detail_page.dart';
+import 'package:movie/pages/popular_movies_page.dart';
+import 'package:movie/pages/search_page.dart';
+import 'package:movie/pages/top_rated_movies_page.dart';
+import 'package:movie/pages/watchlist_movies_page.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
+import 'package:tv/blocs/tv_series_detail/tv_series_detail_cubit.dart';
+import 'package:tv/blocs/tv_series_now_playing/tv_series_now_playing_cubit.dart';
+import 'package:tv/blocs/tv_series_popular/tv_series_popular_cubit.dart';
+import 'package:tv/blocs/tv_series_recommended/tv_series_recommended_cubit.dart';
+import 'package:tv/blocs/tv_series_search/tv_series_search_cubit.dart';
+import 'package:tv/blocs/tv_series_top_rated/tv_series_top_rated_cubit.dart';
+import 'package:tv/blocs/tv_series_watchlist/tv_series_watchlist_cubit.dart';
+import 'package:tv/blocs/tv_series_watchlist_status/tv_series_watchlist_status_cubit.dart';
+import 'package:tv/pages/home_tv_series_page.dart';
+import 'package:tv/pages/popular_tv_series_page.dart';
+import 'package:tv/pages/top_rated_tv_series_page.dart';
+import 'package:tv/pages/tv_series_detail_page.dart';
+import 'package:tv/pages/tv_series_now_playing_page.dart';
+import 'package:tv/pages/tv_series_search_page.dart';
+import 'package:tv/pages/tv_series_watchlist_page.dart';
 
 import 'firebase_options.dart';
-import 'presentation/bloc/tv_series/tv_series_detail/tv_series_detail_cubit.dart';
-import 'presentation/bloc/tv_series/tv_series_now_playing/tv_series_now_playing_cubit.dart';
-import 'presentation/bloc/tv_series/tv_series_popular/tv_series_popular_cubit.dart';
-import 'presentation/bloc/tv_series/tv_series_recommended/tv_series_recommended_cubit.dart';
-import 'presentation/bloc/tv_series/tv_series_search/tv_series_search_cubit.dart';
-import 'presentation/bloc/tv_series/tv_series_top_rated/tv_series_top_rated_cubit.dart';
-import 'presentation/bloc/tv_series/tv_series_watchlist/tv_series_watchlist_cubit.dart';
-import 'presentation/bloc/tv_series/tv_series_watchlist_status/tv_series_watchlist_status_cubit.dart';
 
 void main() async {
   di.init();
@@ -55,6 +57,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (_) => di.locator<HomePageCubit>(),
+        ),
         //Movies
         BlocProvider(
           create: (_) => di.locator<MovieDetailCubit>(),
@@ -115,11 +120,11 @@ class MyApp extends StatelessWidget {
           textTheme: kTextTheme,
           drawerTheme: kDrawerTheme,
         ),
-        home: HomeMoviePage(),
+        home: HomePage(),
         navigatorObservers: [routeObserver],
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
-            case '/home':
+            case HomeMoviePage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => HomeMoviePage());
             case PopularMoviesPage.ROUTE_NAME:
               return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
