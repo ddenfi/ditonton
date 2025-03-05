@@ -34,15 +34,31 @@ dependencies:
   get_it: ^7.7.0
   sqflite: ^2.3.3+1
   path_provider: ^2.1.4
+  firebase_core: ^3.11.0
+  firebase_crashlytics: ^4.3.2
+  flutter_bloc: ^9.0.0
+
+  core:
+    path: core
+
+  movie:
+    path: movie
+
+  tv:
+    path: tv
+
 
 dev_dependencies:
+  dartz: ^0.10.1
   mockito: ^5.0.8
   build_runner: ^2.0.4
+  bloc_test: ^10.0.0
   flutter_test:
     sdk: flutter
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+# following pages: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
@@ -55,6 +71,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/certificates/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
