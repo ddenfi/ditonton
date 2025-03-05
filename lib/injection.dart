@@ -1,3 +1,4 @@
+import 'package:core/common/utils.dart';
 import 'package:core/data/datasources/api_client/tmdb_api_client.dart';
 import 'package:core/data/datasources/db/database_helper.dart';
 import 'package:core/data/datasources/movie_local_data_source.dart';
@@ -50,7 +51,9 @@ import 'package:tv/blocs/tv_series_watchlist_status/tv_series_watchlist_status_c
 
 final locator = GetIt.instance;
 
-void init() {
+Future<void> init() async {
+  final theMovieDpApiClient = await TheMovieDbApiClient.getHttpClient;
+
   locator.registerFactory(
     () => HomePageCubit(),
   );
@@ -118,7 +121,7 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton<http.Client>(() => TheMovieDbApiClient());
+  locator.registerLazySingleton<http.Client>(() => theMovieDpApiClient);
 
   // TV SERIES
 
