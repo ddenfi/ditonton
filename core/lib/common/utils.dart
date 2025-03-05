@@ -4,10 +4,3 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
-
-Future<SecurityContext> get tmdbSecurityContext async {
-  final sslCert = await rootBundle.load('assets/certificates/tmdb_certs.pem');
-  SecurityContext securityContext = SecurityContext(withTrustedRoots: false);
-  securityContext.setTrustedCertificatesBytes(sslCert.buffer.asInt8List());
-  return securityContext;
-}

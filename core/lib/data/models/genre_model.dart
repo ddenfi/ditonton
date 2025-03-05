@@ -1,4 +1,3 @@
-
 import 'package:core/domain/entities/genre.dart';
 import 'package:equatable/equatable.dart';
 

@@ -41,8 +41,8 @@ import 'package:tv/pages/tv_series_watchlist_page.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  di.init();
   WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

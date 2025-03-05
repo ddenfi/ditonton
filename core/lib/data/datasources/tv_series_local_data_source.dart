@@ -2,7 +2,6 @@ import 'package:core/common/exception.dart';
 import 'package:core/data/datasources/db/database_helper.dart';
 import 'package:core/data/models/tv_series/tv_series_table.dart';
 
-
 abstract class TvSeriesLocalDataSource {
   Future<String> insertWatchlist(TvSeriesTable show);
 

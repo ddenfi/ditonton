@@ -3,7 +3,6 @@ import 'package:core/domain/entities/tv_series/tv_series.dart';
 import 'package:core/domain/repositories/tv_series_repository.dart';
 import 'package:dartz/dartz.dart';
 
-
 class SearchTvSeries {
   final TvSeriesRepositories _repo;
 

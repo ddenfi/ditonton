@@ -1,12 +1,9 @@
 import 'dart:convert';
 
-
 import 'package:core/data/models/tv_series/tv_series_response.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../helpers/json_reader.dart';
-
-
 
 void main() {
   final tTvSeriesModel = TvSeriesModel(

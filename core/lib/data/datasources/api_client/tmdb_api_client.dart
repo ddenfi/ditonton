@@ -1,17 +1,18 @@
 import 'dart:io';
 
-import 'package:core/common/utils.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/io_client.dart';
 
-class TheMovieDbApiClient extends http.BaseClient {
-  @override
-  Future<http.StreamedResponse> send(http.BaseRequest request) async {
-    final ioClient = HttpClient(context: await tmdbSecurityContext);
+class TheMovieDbApiClient {
+  static Future<http.Client> get getHttpClient async {
+    final sslCert =
+        await rootBundle.load('assets/certificates/api.themoviedb.org.crt');
+    SecurityContext securityContext = SecurityContext(withTrustedRoots: false);
+    securityContext.setTrustedCertificatesBytes(sslCert.buffer.asInt8List());
+    final ioClient = HttpClient(context: securityContext);
     ioClient.badCertificateCallback =
-        (X509Certificate cert, String host, int port) => true;
-
-    final client = IOClient(ioClient);
-    return client.send(request);
+        (X509Certificate cert, String host, int port) => false;
+    return IOClient(ioClient);
   }
 }

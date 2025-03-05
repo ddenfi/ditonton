@@ -1,5 +1,3 @@
-
-
 import 'package:core/data/models/show_table.dart';
 import 'package:core/domain/entities/tv_series/tv_series.dart';
 import 'package:core/domain/entities/tv_series/tv_series_detail.dart';

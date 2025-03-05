@@ -1,5 +1,3 @@
-
-
 import 'package:core/domain/entities/genre.dart';
 import 'package:core/domain/entities/tv_series/tv_series_detail.dart';
 import 'package:equatable/equatable.dart';

@@ -1,6 +1,3 @@
-
-
-
 import 'package:core/domain/repositories/movie_repository.dart';
 
 class GetWatchListStatus {
