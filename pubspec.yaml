@@ -49,10 +49,8 @@ dependencies:
 
 
 dev_dependencies:
-  dartz: ^0.10.1
   mockito: ^5.0.8
   build_runner: ^2.0.4
-  bloc_test: ^10.0.0
   flutter_test:
     sdk: flutter
 
