@@ -7,7 +7,7 @@ import 'package:movie/pages/movie_detail_page.dart';
 class MovieCard extends StatelessWidget {
   final Movie movie;
 
-  MovieCard(this.movie);
+  const MovieCard(this.movie, {super.key});
 
   @override
   Widget build(BuildContext context) {

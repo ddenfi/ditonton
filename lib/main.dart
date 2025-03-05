@@ -21,7 +21,6 @@ import 'package:movie/pages/popular_movies_page.dart';
 import 'package:movie/pages/search_page.dart';
 import 'package:movie/pages/top_rated_movies_page.dart';
 import 'package:movie/pages/watchlist_movies_page.dart';
-import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
 import 'package:tv/blocs/tv_series_detail/tv_series_detail_cubit.dart';
 import 'package:tv/blocs/tv_series_now_playing/tv_series_now_playing_cubit.dart';

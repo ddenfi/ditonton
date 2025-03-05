@@ -17,7 +17,7 @@ final class TvSeriesDetailStateLoading extends TvSeriesDetailState {
 final class TvSeriesDetailStateError extends TvSeriesDetailState {
   final String message;
 
-  TvSeriesDetailStateError({required this.message});
+  const TvSeriesDetailStateError({required this.message});
 
   @override
   List<Object?> get props => [message];
@@ -26,7 +26,7 @@ final class TvSeriesDetailStateError extends TvSeriesDetailState {
 final class TvSeriesDetailStateSuccess extends TvSeriesDetailState {
   final TvSeriesDetail data;
 
-  TvSeriesDetailStateSuccess({required this.data});
+  const TvSeriesDetailStateSuccess({required this.data});
 
   @override
   List<Object?> get props => [data];

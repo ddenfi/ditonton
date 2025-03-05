@@ -17,7 +17,7 @@ final class SearchMoviesLoading extends SearchMoviesState {
 final class SearchMoviesError extends SearchMoviesState {
   final String message;
 
-  SearchMoviesError({required this.message});
+  const SearchMoviesError({required this.message});
 
   @override
   List<Object?> get props => [message];
@@ -26,7 +26,7 @@ final class SearchMoviesError extends SearchMoviesState {
 final class SearchMoviesSuccess extends SearchMoviesState {
   final List<Movie> data;
 
-  SearchMoviesSuccess({required this.data});
+  const SearchMoviesSuccess({required this.data});
 
   @override
   List<Object?> get props => [data];

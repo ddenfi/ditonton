@@ -17,7 +17,7 @@ final class NowPlayingMoviesLoading extends NowPlayingMoviesState {
 final class NowPlayingMoviesError extends NowPlayingMoviesState {
   final String message;
 
-  NowPlayingMoviesError({required this.message});
+  const NowPlayingMoviesError({required this.message});
 
   @override
   List<Object?> get props => [message];
@@ -26,7 +26,7 @@ final class NowPlayingMoviesError extends NowPlayingMoviesState {
 final class NowPlayingMoviesSuccess extends NowPlayingMoviesState {
   final List<Movie> data;
 
-  NowPlayingMoviesSuccess({required this.data});
+  const NowPlayingMoviesSuccess({required this.data});
 
   @override
   List<Object?> get props => [data];

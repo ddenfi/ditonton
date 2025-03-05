@@ -7,13 +7,12 @@ import 'package:tv/blocs/tv_series_detail/tv_series_detail_cubit.dart';
 import 'package:tv/blocs/tv_series_recommended/tv_series_recommended_cubit.dart';
 import 'package:tv/blocs/tv_series_watchlist_status/tv_series_watchlist_status_cubit.dart';
 
-
 class TvSeriesDetailPage extends StatefulWidget {
   static const ROUTE_NAME = '/detail/tv-series';
 
   final int id;
 
-  TvSeriesDetailPage({required this.id});
+  const TvSeriesDetailPage({super.key, required this.id});
 
   @override
   _TvSeriesDetailPageState createState() => _TvSeriesDetailPageState();
@@ -63,7 +62,7 @@ class DetailContent extends StatelessWidget {
   final String watchlistAddSuccessMessage = 'Added to Watchlist';
   final String watchlistRemoveSuccessMessage = 'Removed from Watchlist';
 
-  DetailContent(this.show);
+  const DetailContent(this.show, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -134,11 +133,9 @@ class DetailContent extends StatelessWidget {
                                             .watchlistMessage;
 
                                         if (message ==
-
-                                                    watchlistAddSuccessMessage ||
+                                                watchlistAddSuccessMessage ||
                                             message ==
-
-                                                    watchlistRemoveSuccessMessage) {
+                                                watchlistRemoveSuccessMessage) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(SnackBar(
                                                   content: Text(message)));
@@ -268,7 +265,7 @@ class DetailContent extends StatelessWidget {
                                   case TvSeriesRecommendedStateError():
                                     return Text(state.message);
                                   case TvSeriesRecommendedStateSuccess():
-                                    return Container(
+                                    return SizedBox(
                                       height: 150,
                                       child: ListView.builder(
                                         scrollDirection: Axis.horizontal,
@@ -351,7 +348,7 @@ class DetailContent extends StatelessWidget {
   String _showGenres(List<Genre> genres) {
     String result = '';
     for (var genre in genres) {
-      result += genre.name.toString() + ', ';
+      result += '${genre.name}, ';
     }
 
     if (result.isEmpty) {

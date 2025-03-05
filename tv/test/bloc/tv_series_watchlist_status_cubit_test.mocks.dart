@@ -32,7 +32,7 @@ import 'package:mockito/mockito.dart' as _i1;
 
 class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
   _FakeEither_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 /// A class which mocks [GetWatchlistTvSeriesStatus].
@@ -45,12 +45,10 @@ class MockGetWatchlistTvSeriesStatus extends _i1.Mock
   }
 
   @override
-  _i4.Future<bool> execute(int? id) =>
-      (super.noSuchMethod(
-            Invocation.method(#execute, [id]),
-            returnValue: _i4.Future<bool>.value(false),
-          )
-          as _i4.Future<bool>);
+  _i4.Future<bool> execute(int? id) => (super.noSuchMethod(
+        Invocation.method(#execute, [id]),
+        returnValue: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
 }
 
 /// A class which mocks [RemoveWatchlistTvSeries].
@@ -67,15 +65,14 @@ class MockRemoveWatchlistTvSeries extends _i1.Mock
     _i7.TvSeriesDetail? show,
   ) =>
       (super.noSuchMethod(
+        Invocation.method(#execute, [show]),
+        returnValue: _i4.Future<_i2.Either<_i6.Failure, String>>.value(
+          _FakeEither_0<_i6.Failure, String>(
+            this,
             Invocation.method(#execute, [show]),
-            returnValue: _i4.Future<_i2.Either<_i6.Failure, String>>.value(
-              _FakeEither_0<_i6.Failure, String>(
-                this,
-                Invocation.method(#execute, [show]),
-              ),
-            ),
-          )
-          as _i4.Future<_i2.Either<_i6.Failure, String>>);
+          ),
+        ),
+      ) as _i4.Future<_i2.Either<_i6.Failure, String>>);
 }
 
 /// A class which mocks [SaveWatchlistTvSeries].
@@ -92,13 +89,12 @@ class MockSaveWatchlistTvSeries extends _i1.Mock
     _i7.TvSeriesDetail? show,
   ) =>
       (super.noSuchMethod(
+        Invocation.method(#execute, [show]),
+        returnValue: _i4.Future<_i2.Either<_i6.Failure, String>>.value(
+          _FakeEither_0<_i6.Failure, String>(
+            this,
             Invocation.method(#execute, [show]),
-            returnValue: _i4.Future<_i2.Either<_i6.Failure, String>>.value(
-              _FakeEither_0<_i6.Failure, String>(
-                this,
-                Invocation.method(#execute, [show]),
-              ),
-            ),
-          )
-          as _i4.Future<_i2.Either<_i6.Failure, String>>);
+          ),
+        ),
+      ) as _i4.Future<_i2.Either<_i6.Failure, String>>);
 }

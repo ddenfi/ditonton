@@ -7,6 +7,8 @@ import '../widgets/tv_series_card_list.dart';
 class TopRatedTvSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/tv-series/top-rated';
 
+  const TopRatedTvSeriesPage({super.key});
+
   @override
   _TopRatedTvSeriesPageState createState() => _TopRatedTvSeriesPageState();
 }

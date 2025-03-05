@@ -30,12 +30,12 @@ import 'package:mockito/mockito.dart' as _i1;
 class _FakeTvSeriesRepositories_0 extends _i1.SmartFake
     implements _i2.TvSeriesRepositories {
   _FakeTvSeriesRepositories_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
   _FakeEither_1(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 /// A class which mocks [GetTvSeriesDetail].
@@ -47,27 +47,24 @@ class MockGetTvSeriesDetail extends _i1.Mock implements _i4.GetTvSeriesDetail {
   }
 
   @override
-  _i2.TvSeriesRepositories get repo =>
-      (super.noSuchMethod(
-            Invocation.getter(#repo),
-            returnValue: _FakeTvSeriesRepositories_0(
-              this,
-              Invocation.getter(#repo),
-            ),
-          )
-          as _i2.TvSeriesRepositories);
+  _i2.TvSeriesRepositories get repo => (super.noSuchMethod(
+        Invocation.getter(#repo),
+        returnValue: _FakeTvSeriesRepositories_0(
+          this,
+          Invocation.getter(#repo),
+        ),
+      ) as _i2.TvSeriesRepositories);
 
   @override
   _i5.Future<_i3.Either<_i6.Failure, _i7.TvSeriesDetail>> execute(int? id) =>
       (super.noSuchMethod(
+        Invocation.method(#execute, [id]),
+        returnValue:
+            _i5.Future<_i3.Either<_i6.Failure, _i7.TvSeriesDetail>>.value(
+          _FakeEither_1<_i6.Failure, _i7.TvSeriesDetail>(
+            this,
             Invocation.method(#execute, [id]),
-            returnValue:
-                _i5.Future<_i3.Either<_i6.Failure, _i7.TvSeriesDetail>>.value(
-                  _FakeEither_1<_i6.Failure, _i7.TvSeriesDetail>(
-                    this,
-                    Invocation.method(#execute, [id]),
-                  ),
-                ),
-          )
-          as _i5.Future<_i3.Either<_i6.Failure, _i7.TvSeriesDetail>>);
+          ),
+        ),
+      ) as _i5.Future<_i3.Either<_i6.Failure, _i7.TvSeriesDetail>>);
 }

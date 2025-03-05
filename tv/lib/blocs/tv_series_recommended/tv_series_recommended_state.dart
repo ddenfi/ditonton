@@ -9,7 +9,6 @@ final class TvSeriesRecommendedInitial extends TvSeriesRecommendedState {
   List<Object> get props => [];
 }
 
-
 final class TvSeriesRecommendedStateLoading extends TvSeriesRecommendedState {
   @override
   List<Object?> get props => [];
@@ -18,7 +17,7 @@ final class TvSeriesRecommendedStateLoading extends TvSeriesRecommendedState {
 final class TvSeriesRecommendedStateError extends TvSeriesRecommendedState {
   final String message;
 
-  TvSeriesRecommendedStateError({required this.message});
+  const TvSeriesRecommendedStateError({required this.message});
 
   @override
   List<Object?> get props => [message];
@@ -27,9 +26,8 @@ final class TvSeriesRecommendedStateError extends TvSeriesRecommendedState {
 final class TvSeriesRecommendedStateSuccess extends TvSeriesRecommendedState {
   final List<TvSeries> data;
 
-  TvSeriesRecommendedStateSuccess({required this.data});
+  const TvSeriesRecommendedStateSuccess({required this.data});
 
   @override
   List<Object?> get props => [data];
 }
-

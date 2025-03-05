@@ -1,7 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:core/common/failure.dart';
 import 'package:core/core.dart';
-import 'package:core/domain/usecases/get_popular_movies.dart';
 import 'package:core/domain/usecases/tv_series/get_popular_tv_series.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';

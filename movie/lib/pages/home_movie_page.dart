@@ -13,6 +13,8 @@ import 'movie_detail_page.dart';
 class HomeMoviePage extends StatefulWidget {
   static const String ROUTE_NAME = "/home";
 
+  const HomeMoviePage({super.key});
+
   @override
   _HomeMoviePageState createState() => _HomeMoviePageState();
 }
@@ -131,11 +133,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
 class MovieList extends StatelessWidget {
   final List<Movie> movies;
 
-  MovieList(this.movies);
+  const MovieList(this.movies, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

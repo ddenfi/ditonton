@@ -17,7 +17,7 @@ final class TvSeriesPopularStateLoading extends TvSeriesPopularState {
 final class TvSeriesPopularStateError extends TvSeriesPopularState {
   final String message;
 
-  TvSeriesPopularStateError({required this.message});
+  const TvSeriesPopularStateError({required this.message});
 
   @override
   List<Object?> get props => [message];
@@ -26,7 +26,7 @@ final class TvSeriesPopularStateError extends TvSeriesPopularState {
 final class TvSeriesPopularStateSuccess extends TvSeriesPopularState {
   final List<TvSeries> data;
 
-  TvSeriesPopularStateSuccess({required this.data});
+  const TvSeriesPopularStateSuccess({required this.data});
 
   @override
   List<Object?> get props => [data];

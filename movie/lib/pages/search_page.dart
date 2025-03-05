@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:movie/blocs/search_movies/search_movies_cubit.dart';
 import 'package:movie/widgets/movie_card_list.dart';
 
-
 class SearchPage extends StatelessWidget {
   static const ROUTE_NAME = '/search';
+
+  const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {

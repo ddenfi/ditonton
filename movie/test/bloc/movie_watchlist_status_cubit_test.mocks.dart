@@ -31,12 +31,12 @@ import 'package:mockito/mockito.dart' as _i1;
 class _FakeMovieRepository_0 extends _i1.SmartFake
     implements _i2.MovieRepository {
   _FakeMovieRepository_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
   _FakeEither_1(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 /// A class which mocks [GetWatchListStatus].
@@ -49,23 +49,19 @@ class MockGetWatchListStatus extends _i1.Mock
   }
 
   @override
-  _i2.MovieRepository get repository =>
-      (super.noSuchMethod(
-            Invocation.getter(#repository),
-            returnValue: _FakeMovieRepository_0(
-              this,
-              Invocation.getter(#repository),
-            ),
-          )
-          as _i2.MovieRepository);
+  _i2.MovieRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeMovieRepository_0(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i2.MovieRepository);
 
   @override
-  _i5.Future<bool> execute(int? id) =>
-      (super.noSuchMethod(
-            Invocation.method(#execute, [id]),
-            returnValue: _i5.Future<bool>.value(false),
-          )
-          as _i5.Future<bool>);
+  _i5.Future<bool> execute(int? id) => (super.noSuchMethod(
+        Invocation.method(#execute, [id]),
+        returnValue: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 }
 
 /// A class which mocks [SaveWatchlist].
@@ -77,28 +73,25 @@ class MockSaveWatchlist extends _i1.Mock implements _i6.SaveWatchlist {
   }
 
   @override
-  _i2.MovieRepository get repository =>
-      (super.noSuchMethod(
-            Invocation.getter(#repository),
-            returnValue: _FakeMovieRepository_0(
-              this,
-              Invocation.getter(#repository),
-            ),
-          )
-          as _i2.MovieRepository);
+  _i2.MovieRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeMovieRepository_0(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i2.MovieRepository);
 
   @override
   _i5.Future<_i3.Either<_i7.Failure, String>> execute(_i8.MovieDetail? movie) =>
       (super.noSuchMethod(
+        Invocation.method(#execute, [movie]),
+        returnValue: _i5.Future<_i3.Either<_i7.Failure, String>>.value(
+          _FakeEither_1<_i7.Failure, String>(
+            this,
             Invocation.method(#execute, [movie]),
-            returnValue: _i5.Future<_i3.Either<_i7.Failure, String>>.value(
-              _FakeEither_1<_i7.Failure, String>(
-                this,
-                Invocation.method(#execute, [movie]),
-              ),
-            ),
-          )
-          as _i5.Future<_i3.Either<_i7.Failure, String>>);
+          ),
+        ),
+      ) as _i5.Future<_i3.Either<_i7.Failure, String>>);
 }
 
 /// A class which mocks [RemoveWatchlist].
@@ -110,26 +103,23 @@ class MockRemoveWatchlist extends _i1.Mock implements _i9.RemoveWatchlist {
   }
 
   @override
-  _i2.MovieRepository get repository =>
-      (super.noSuchMethod(
-            Invocation.getter(#repository),
-            returnValue: _FakeMovieRepository_0(
-              this,
-              Invocation.getter(#repository),
-            ),
-          )
-          as _i2.MovieRepository);
+  _i2.MovieRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeMovieRepository_0(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i2.MovieRepository);
 
   @override
   _i5.Future<_i3.Either<_i7.Failure, String>> execute(_i8.MovieDetail? movie) =>
       (super.noSuchMethod(
+        Invocation.method(#execute, [movie]),
+        returnValue: _i5.Future<_i3.Either<_i7.Failure, String>>.value(
+          _FakeEither_1<_i7.Failure, String>(
+            this,
             Invocation.method(#execute, [movie]),
-            returnValue: _i5.Future<_i3.Either<_i7.Failure, String>>.value(
-              _FakeEither_1<_i7.Failure, String>(
-                this,
-                Invocation.method(#execute, [movie]),
-              ),
-            ),
-          )
-          as _i5.Future<_i3.Either<_i7.Failure, String>>);
+          ),
+        ),
+      ) as _i5.Future<_i3.Either<_i7.Failure, String>>);
 }

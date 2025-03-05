@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:movie/blocs/top_rated_movies/top_rated_movies_cubit.dart';
 import 'package:movie/widgets/movie_card_list.dart';
 
-
 class TopRatedMoviesPage extends StatefulWidget {
   static const ROUTE_NAME = '/top-rated-movie';
+
+  const TopRatedMoviesPage({super.key});
 
   @override
   _TopRatedMoviesPageState createState() => _TopRatedMoviesPageState();
@@ -31,7 +32,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
           builder: (context, state) {
             switch (state) {
               case TopRatedMoviesInitial():
-               return SizedBox();
+                return SizedBox();
               case TopRatedMoviesLoading():
                 return Center(
                   child: CircularProgressIndicator(),

@@ -1,4 +1,3 @@
-
 import 'package:core/core.dart';
 import 'package:core/domain/entities/movie.dart';
 import 'package:core/domain/usecases/get_now_playing_movies.dart';

@@ -1,18 +1,11 @@
 import 'package:core/common/failure.dart';
 import 'package:core/core.dart';
-import 'package:core/domain/usecases/get_movie_detail.dart';
-import 'package:core/domain/usecases/get_movie_recommendations.dart';
 import 'package:core/domain/usecases/tv_series/get_top_rated_tv_series.dart';
-import 'package:core/domain/usecases/tv_series/get_tv_series_recommendations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movie/blocs/movie_detail/movie_detail_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/core.dart';
-import 'package:movie/blocs/recommended_movies/recommended_movies_cubit.dart';
 import 'package:dartz/dartz.dart';
-import 'package:tv/blocs/tv_series_recommended/tv_series_recommended_cubit.dart';
 import 'package:tv/blocs/tv_series_top_rated/tv_series_top_rated_cubit.dart';
 
 import 'tv_series_top_rated_cubit_test.mocks.dart';

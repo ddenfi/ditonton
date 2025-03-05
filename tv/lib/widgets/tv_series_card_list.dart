@@ -7,7 +7,7 @@ import 'package:tv/pages/tv_series_detail_page.dart';
 class TvSeriesCardList extends StatelessWidget {
   final TvSeries show;
 
-  TvSeriesCardList(this.show);
+  const TvSeriesCardList(this.show, {super.key});
 
   @override
   Widget build(BuildContext context) {

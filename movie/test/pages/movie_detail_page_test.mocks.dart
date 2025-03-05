@@ -37,30 +37,30 @@ import 'package:movie/blocs/recommended_movies/recommended_movies_cubit.dart'
 class _FakeGetMovieDetail_0 extends _i1.SmartFake
     implements _i2.GetMovieDetail {
   _FakeGetMovieDetail_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 class _FakeGetWatchListStatus_1 extends _i1.SmartFake
     implements _i3.GetWatchListStatus {
   _FakeGetWatchListStatus_1(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 class _FakeSaveWatchlist_2 extends _i1.SmartFake implements _i4.SaveWatchlist {
   _FakeSaveWatchlist_2(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 class _FakeRemoveWatchlist_3 extends _i1.SmartFake
     implements _i5.RemoveWatchlist {
   _FakeRemoveWatchlist_3(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 class _FakeGetMovieRecommendations_4 extends _i1.SmartFake
     implements _i6.GetMovieRecommendations {
   _FakeGetMovieRecommendations_4(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 /// A class which mocks [MovieDetailCubit].
@@ -72,34 +72,28 @@ class MockMovieDetailCubit extends _i1.Mock implements _i7.MovieDetailCubit {
   }
 
   @override
-  _i2.GetMovieDetail get getMovieDetail =>
-      (super.noSuchMethod(
-            Invocation.getter(#getMovieDetail),
-            returnValue: _FakeGetMovieDetail_0(
-              this,
-              Invocation.getter(#getMovieDetail),
-            ),
-          )
-          as _i2.GetMovieDetail);
+  _i2.GetMovieDetail get getMovieDetail => (super.noSuchMethod(
+        Invocation.getter(#getMovieDetail),
+        returnValue: _FakeGetMovieDetail_0(
+          this,
+          Invocation.getter(#getMovieDetail),
+        ),
+      ) as _i2.GetMovieDetail);
 
   @override
-  _i7.MovieDetailState get state =>
-      (super.noSuchMethod(
-            Invocation.getter(#state),
-            returnValue: _i8.dummyValue<_i7.MovieDetailState>(
-              this,
-              Invocation.getter(#state),
-            ),
-          )
-          as _i7.MovieDetailState);
+  _i7.MovieDetailState get state => (super.noSuchMethod(
+        Invocation.getter(#state),
+        returnValue: _i8.dummyValue<_i7.MovieDetailState>(
+          this,
+          Invocation.getter(#state),
+        ),
+      ) as _i7.MovieDetailState);
 
   @override
-  _i9.Stream<_i7.MovieDetailState> get stream =>
-      (super.noSuchMethod(
-            Invocation.getter(#stream),
-            returnValue: _i9.Stream<_i7.MovieDetailState>.empty(),
-          )
-          as _i9.Stream<_i7.MovieDetailState>);
+  _i9.Stream<_i7.MovieDetailState> get stream => (super.noSuchMethod(
+        Invocation.getter(#stream),
+        returnValue: _i9.Stream<_i7.MovieDetailState>.empty(),
+      ) as _i9.Stream<_i7.MovieDetailState>);
 
   @override
   bool get isClosed =>
@@ -107,19 +101,17 @@ class MockMovieDetailCubit extends _i1.Mock implements _i7.MovieDetailCubit {
           as bool);
 
   @override
-  _i9.Future<void> fetchMovieDetail(int? id) =>
-      (super.noSuchMethod(
-            Invocation.method(#fetchMovieDetail, [id]),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
+  _i9.Future<void> fetchMovieDetail(int? id) => (super.noSuchMethod(
+        Invocation.method(#fetchMovieDetail, [id]),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 
   @override
   void emit(_i7.MovieDetailState? state) => super.noSuchMethod(
-    Invocation.method(#emit, [state]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#emit, [state]),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void onChange(_i10.Change<_i7.MovieDetailState>? change) =>
@@ -130,24 +122,22 @@ class MockMovieDetailCubit extends _i1.Mock implements _i7.MovieDetailCubit {
 
   @override
   void addError(Object? error, [StackTrace? stackTrace]) => super.noSuchMethod(
-    Invocation.method(#addError, [error, stackTrace]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#addError, [error, stackTrace]),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void onError(Object? error, StackTrace? stackTrace) => super.noSuchMethod(
-    Invocation.method(#onError, [error, stackTrace]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#onError, [error, stackTrace]),
+        returnValueForMissingStub: null,
+      );
 
   @override
-  _i9.Future<void> close() =>
-      (super.noSuchMethod(
-            Invocation.method(#close, []),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
+  _i9.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(#close, []),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 }
 
 /// A class which mocks [MovieWatchlistStatusCubit].
@@ -160,73 +150,61 @@ class MockMovieWatchlistStatusCubit extends _i1.Mock
   }
 
   @override
-  _i3.GetWatchListStatus get getWatchListStatus =>
-      (super.noSuchMethod(
-            Invocation.getter(#getWatchListStatus),
-            returnValue: _FakeGetWatchListStatus_1(
-              this,
-              Invocation.getter(#getWatchListStatus),
-            ),
-          )
-          as _i3.GetWatchListStatus);
+  _i3.GetWatchListStatus get getWatchListStatus => (super.noSuchMethod(
+        Invocation.getter(#getWatchListStatus),
+        returnValue: _FakeGetWatchListStatus_1(
+          this,
+          Invocation.getter(#getWatchListStatus),
+        ),
+      ) as _i3.GetWatchListStatus);
 
   @override
-  _i4.SaveWatchlist get saveWatchlist =>
-      (super.noSuchMethod(
-            Invocation.getter(#saveWatchlist),
-            returnValue: _FakeSaveWatchlist_2(
-              this,
-              Invocation.getter(#saveWatchlist),
-            ),
-          )
-          as _i4.SaveWatchlist);
+  _i4.SaveWatchlist get saveWatchlist => (super.noSuchMethod(
+        Invocation.getter(#saveWatchlist),
+        returnValue: _FakeSaveWatchlist_2(
+          this,
+          Invocation.getter(#saveWatchlist),
+        ),
+      ) as _i4.SaveWatchlist);
 
   @override
-  _i5.RemoveWatchlist get removeWatchlist =>
-      (super.noSuchMethod(
-            Invocation.getter(#removeWatchlist),
-            returnValue: _FakeRemoveWatchlist_3(
-              this,
-              Invocation.getter(#removeWatchlist),
-            ),
-          )
-          as _i5.RemoveWatchlist);
+  _i5.RemoveWatchlist get removeWatchlist => (super.noSuchMethod(
+        Invocation.getter(#removeWatchlist),
+        returnValue: _FakeRemoveWatchlist_3(
+          this,
+          Invocation.getter(#removeWatchlist),
+        ),
+      ) as _i5.RemoveWatchlist);
 
   @override
-  String get watchlistMessage =>
-      (super.noSuchMethod(
-            Invocation.getter(#watchlistMessage),
-            returnValue: _i8.dummyValue<String>(
-              this,
-              Invocation.getter(#watchlistMessage),
-            ),
-          )
-          as String);
+  String get watchlistMessage => (super.noSuchMethod(
+        Invocation.getter(#watchlistMessage),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#watchlistMessage),
+        ),
+      ) as String);
 
   @override
   set watchlistMessage(String? _watchlistMessage) => super.noSuchMethod(
-    Invocation.setter(#watchlistMessage, _watchlistMessage),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(#watchlistMessage, _watchlistMessage),
+        returnValueForMissingStub: null,
+      );
 
   @override
-  _i11.MovieWatchlistStatusState get state =>
-      (super.noSuchMethod(
-            Invocation.getter(#state),
-            returnValue: _i8.dummyValue<_i11.MovieWatchlistStatusState>(
-              this,
-              Invocation.getter(#state),
-            ),
-          )
-          as _i11.MovieWatchlistStatusState);
+  _i11.MovieWatchlistStatusState get state => (super.noSuchMethod(
+        Invocation.getter(#state),
+        returnValue: _i8.dummyValue<_i11.MovieWatchlistStatusState>(
+          this,
+          Invocation.getter(#state),
+        ),
+      ) as _i11.MovieWatchlistStatusState);
 
   @override
-  _i9.Stream<_i11.MovieWatchlistStatusState> get stream =>
-      (super.noSuchMethod(
-            Invocation.getter(#stream),
-            returnValue: _i9.Stream<_i11.MovieWatchlistStatusState>.empty(),
-          )
-          as _i9.Stream<_i11.MovieWatchlistStatusState>);
+  _i9.Stream<_i11.MovieWatchlistStatusState> get stream => (super.noSuchMethod(
+        Invocation.getter(#stream),
+        returnValue: _i9.Stream<_i11.MovieWatchlistStatusState>.empty(),
+      ) as _i9.Stream<_i11.MovieWatchlistStatusState>);
 
   @override
   bool get isClosed =>
@@ -234,37 +212,32 @@ class MockMovieWatchlistStatusCubit extends _i1.Mock
           as bool);
 
   @override
-  _i9.Future<void> loadWatchlistStatus(int? id) =>
-      (super.noSuchMethod(
-            Invocation.method(#loadWatchlistStatus, [id]),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
+  _i9.Future<void> loadWatchlistStatus(int? id) => (super.noSuchMethod(
+        Invocation.method(#loadWatchlistStatus, [id]),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 
   @override
-  _i9.Future<void> addWatchlist(_i12.MovieDetail? movie) =>
-      (super.noSuchMethod(
-            Invocation.method(#addWatchlist, [movie]),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
+  _i9.Future<void> addWatchlist(_i12.MovieDetail? movie) => (super.noSuchMethod(
+        Invocation.method(#addWatchlist, [movie]),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 
   @override
   _i9.Future<void> removeFromWatchlist(_i12.MovieDetail? movie) =>
       (super.noSuchMethod(
-            Invocation.method(#removeFromWatchlist, [movie]),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
+        Invocation.method(#removeFromWatchlist, [movie]),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 
   @override
   void emit(_i11.MovieWatchlistStatusState? state) => super.noSuchMethod(
-    Invocation.method(#emit, [state]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#emit, [state]),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void onChange(_i10.Change<_i11.MovieWatchlistStatusState>? change) =>
@@ -275,24 +248,22 @@ class MockMovieWatchlistStatusCubit extends _i1.Mock
 
   @override
   void addError(Object? error, [StackTrace? stackTrace]) => super.noSuchMethod(
-    Invocation.method(#addError, [error, stackTrace]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#addError, [error, stackTrace]),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void onError(Object? error, StackTrace? stackTrace) => super.noSuchMethod(
-    Invocation.method(#onError, [error, stackTrace]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#onError, [error, stackTrace]),
+        returnValueForMissingStub: null,
+      );
 
   @override
-  _i9.Future<void> close() =>
-      (super.noSuchMethod(
-            Invocation.method(#close, []),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
+  _i9.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(#close, []),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 }
 
 /// A class which mocks [RecommendedMoviesCubit].
@@ -307,32 +278,27 @@ class MockRecommendedMoviesCubit extends _i1.Mock
   @override
   _i6.GetMovieRecommendations get getMovieRecommendations =>
       (super.noSuchMethod(
-            Invocation.getter(#getMovieRecommendations),
-            returnValue: _FakeGetMovieRecommendations_4(
-              this,
-              Invocation.getter(#getMovieRecommendations),
-            ),
-          )
-          as _i6.GetMovieRecommendations);
+        Invocation.getter(#getMovieRecommendations),
+        returnValue: _FakeGetMovieRecommendations_4(
+          this,
+          Invocation.getter(#getMovieRecommendations),
+        ),
+      ) as _i6.GetMovieRecommendations);
 
   @override
-  _i13.RecommendedMoviesState get state =>
-      (super.noSuchMethod(
-            Invocation.getter(#state),
-            returnValue: _i8.dummyValue<_i13.RecommendedMoviesState>(
-              this,
-              Invocation.getter(#state),
-            ),
-          )
-          as _i13.RecommendedMoviesState);
+  _i13.RecommendedMoviesState get state => (super.noSuchMethod(
+        Invocation.getter(#state),
+        returnValue: _i8.dummyValue<_i13.RecommendedMoviesState>(
+          this,
+          Invocation.getter(#state),
+        ),
+      ) as _i13.RecommendedMoviesState);
 
   @override
-  _i9.Stream<_i13.RecommendedMoviesState> get stream =>
-      (super.noSuchMethod(
-            Invocation.getter(#stream),
-            returnValue: _i9.Stream<_i13.RecommendedMoviesState>.empty(),
-          )
-          as _i9.Stream<_i13.RecommendedMoviesState>);
+  _i9.Stream<_i13.RecommendedMoviesState> get stream => (super.noSuchMethod(
+        Invocation.getter(#stream),
+        returnValue: _i9.Stream<_i13.RecommendedMoviesState>.empty(),
+      ) as _i9.Stream<_i13.RecommendedMoviesState>);
 
   @override
   bool get isClosed =>
@@ -340,19 +306,17 @@ class MockRecommendedMoviesCubit extends _i1.Mock
           as bool);
 
   @override
-  _i9.Future<void> fetchMoviesRecommendation(int? id) =>
-      (super.noSuchMethod(
-            Invocation.method(#fetchMoviesRecommendation, [id]),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
+  _i9.Future<void> fetchMoviesRecommendation(int? id) => (super.noSuchMethod(
+        Invocation.method(#fetchMoviesRecommendation, [id]),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 
   @override
   void emit(_i13.RecommendedMoviesState? state) => super.noSuchMethod(
-    Invocation.method(#emit, [state]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#emit, [state]),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void onChange(_i10.Change<_i13.RecommendedMoviesState>? change) =>
@@ -363,22 +327,20 @@ class MockRecommendedMoviesCubit extends _i1.Mock
 
   @override
   void addError(Object? error, [StackTrace? stackTrace]) => super.noSuchMethod(
-    Invocation.method(#addError, [error, stackTrace]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#addError, [error, stackTrace]),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void onError(Object? error, StackTrace? stackTrace) => super.noSuchMethod(
-    Invocation.method(#onError, [error, stackTrace]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(#onError, [error, stackTrace]),
+        returnValueForMissingStub: null,
+      );
 
   @override
-  _i9.Future<void> close() =>
-      (super.noSuchMethod(
-            Invocation.method(#close, []),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
+  _i9.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(#close, []),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 }

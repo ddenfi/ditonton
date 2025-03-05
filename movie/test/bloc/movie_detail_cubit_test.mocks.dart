@@ -29,12 +29,12 @@ import 'package:mockito/mockito.dart' as _i1;
 class _FakeMovieRepository_0 extends _i1.SmartFake
     implements _i2.MovieRepository {
   _FakeMovieRepository_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
   _FakeEither_1(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+      : super(parent, parentInvocation);
 }
 
 /// A class which mocks [GetMovieDetail].
@@ -46,27 +46,23 @@ class MockGetMovieDetail extends _i1.Mock implements _i4.GetMovieDetail {
   }
 
   @override
-  _i2.MovieRepository get repository =>
-      (super.noSuchMethod(
-            Invocation.getter(#repository),
-            returnValue: _FakeMovieRepository_0(
-              this,
-              Invocation.getter(#repository),
-            ),
-          )
-          as _i2.MovieRepository);
+  _i2.MovieRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeMovieRepository_0(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i2.MovieRepository);
 
   @override
   _i5.Future<_i3.Either<_i6.Failure, _i7.MovieDetail>> execute(int? id) =>
       (super.noSuchMethod(
+        Invocation.method(#execute, [id]),
+        returnValue: _i5.Future<_i3.Either<_i6.Failure, _i7.MovieDetail>>.value(
+          _FakeEither_1<_i6.Failure, _i7.MovieDetail>(
+            this,
             Invocation.method(#execute, [id]),
-            returnValue:
-                _i5.Future<_i3.Either<_i6.Failure, _i7.MovieDetail>>.value(
-                  _FakeEither_1<_i6.Failure, _i7.MovieDetail>(
-                    this,
-                    Invocation.method(#execute, [id]),
-                  ),
-                ),
-          )
-          as _i5.Future<_i3.Either<_i6.Failure, _i7.MovieDetail>>);
+          ),
+        ),
+      ) as _i5.Future<_i3.Either<_i6.Failure, _i7.MovieDetail>>);
 }

@@ -1,29 +1,14 @@
-import 'package:core/common/failure.dart';
 import 'package:core/core.dart';
-import 'package:core/domain/usecases/get_movie_detail.dart';
-import 'package:core/domain/usecases/get_movie_recommendations.dart';
-import 'package:core/domain/usecases/get_now_playing_movies.dart';
-import 'package:core/domain/usecases/get_popular_movies.dart';
-import 'package:core/domain/usecases/get_watchlist_movies.dart';
 import 'package:core/domain/usecases/get_watchlist_status.dart';
 import 'package:core/domain/usecases/remove_watchlist.dart';
 import 'package:core/domain/usecases/save_watchlist.dart';
-import 'package:core/domain/usecases/search_movies.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movie/blocs/movie_detail/movie_detail_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/core.dart';
-import 'package:movie/blocs/movie_watchlist/movie_watchlist_cubit.dart';
 import 'package:movie/blocs/movie_watchlist_status/movie_watchlist_status_cubit.dart';
-import 'package:movie/blocs/now_playing_movies/now_playing_movies_cubit.dart';
-import 'package:movie/blocs/popular_movies/popular_movies_cubit.dart';
-import 'package:movie/blocs/recommended_movies/recommended_movies_cubit.dart';
-import 'package:movie/blocs/search_movies/search_movies_cubit.dart';
 
-import 'movie_watchlist_cubit_test.mocks.dart';
 import 'movie_watchlist_status_cubit_test.mocks.dart';
 
 @GenerateMocks([GetWatchListStatus, SaveWatchlist, RemoveWatchlist])
@@ -86,7 +71,7 @@ void main() {
       when(mockWatchlistStatusMovies.execute(tId))
           .thenAnswer((_) async => false);
       when(mockSaveWatchlistMovies.execute(testMovieDetail)).thenAnswer(
-            (_) async => Right("Remove from watchlist"),
+        (_) async => Right("Remove from watchlist"),
       );
       return watchlistStatusMoviesCubit;
     },
@@ -106,7 +91,7 @@ void main() {
       when(mockWatchlistStatusMovies.execute(tId))
           .thenAnswer((_) async => true);
       when(mockSaveWatchlistMovies.execute(testMovieDetail)).thenAnswer(
-            (_) async => Right("Remove from watchlist"),
+        (_) async => Right("Remove from watchlist"),
       );
       return watchlistStatusMoviesCubit;
     },
@@ -127,7 +112,7 @@ void main() {
       when(mockWatchlistStatusMovies.execute(tId))
           .thenAnswer((_) async => false);
       when(mockSaveWatchlistMovies.execute(testMovieDetail)).thenAnswer(
-            (_) async => Right("Failed"),
+        (_) async => Right("Failed"),
       );
       return watchlistStatusMoviesCubit;
     },

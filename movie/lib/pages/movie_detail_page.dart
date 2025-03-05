@@ -12,14 +12,13 @@ class MovieDetailPage extends StatefulWidget {
 
   final int id;
 
-  MovieDetailPage({required this.id});
+  const MovieDetailPage({super.key, required this.id});
 
   @override
   _MovieDetailPageState createState() => _MovieDetailPageState();
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
-
   @override
   void initState() {
     super.initState();
@@ -62,7 +61,7 @@ class DetailContent extends StatelessWidget {
   final String watchlistAddSuccessMessage = 'Added to Watchlist';
   final String watchlistRemoveSuccessMessage = 'Removed from Watchlist';
 
-  DetailContent(this.movie);
+  const DetailContent(this.movie, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -184,7 +183,7 @@ class DetailContent extends StatelessWidget {
                                   case RecommendedMoviesStateError():
                                     return Text(state.message);
                                   case RecommendedMoviesStateSuccess():
-                                    return Container(
+                                    return SizedBox(
                                       height: 150,
                                       child: ListView.builder(
                                         scrollDirection: Axis.horizontal,

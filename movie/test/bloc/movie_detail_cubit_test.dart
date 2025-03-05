@@ -34,10 +34,10 @@ void main() {
       return movieDetailCubit;
     },
     act: (cubit) => cubit.fetchMovieDetail(tId),
-    expect: () =>
-    [
+    expect: () => [
       MovieDetailLoading(),
-    MovieDetailSuccess(movieDetail: testMovieDetail)],
+      MovieDetailSuccess(movieDetail: testMovieDetail)
+    ],
     verify: (cubit) {
       verify(mockMovieDetail.execute(tId));
     },
@@ -51,8 +51,7 @@ void main() {
       return movieDetailCubit;
     },
     act: (cubit) => cubit.fetchMovieDetail(tId),
-    expect: () =>
-    [
+    expect: () => [
       MovieDetailLoading(),
       MovieDetailError(message: 'Server Failure'),
     ],

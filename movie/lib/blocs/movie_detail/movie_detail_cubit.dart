@@ -1,7 +1,6 @@
 import 'package:core/core.dart';
 import 'package:core/domain/entities/movie_detail.dart';
 import 'package:core/domain/usecases/get_movie_detail.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 
 part 'movie_detail_state.dart';

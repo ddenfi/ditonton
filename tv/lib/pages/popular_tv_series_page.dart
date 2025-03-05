@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import '../blocs/tv_series_popular/tv_series_popular_cubit.dart';
 import '../widgets/tv_series_card_list.dart';
 
-
 class PopularTvSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/tv-series/popular';
+
+  const PopularTvSeriesPage({super.key});
 
   @override
   _PopularTvSeriesPageState createState() => _PopularTvSeriesPageState();

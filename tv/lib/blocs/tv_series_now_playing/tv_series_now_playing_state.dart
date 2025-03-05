@@ -17,7 +17,7 @@ final class TvSeriesNowPlayingStateLoading extends TvSeriesNowPlayingState {
 final class TvSeriesNowPlayingStateError extends TvSeriesNowPlayingState {
   final String message;
 
-  TvSeriesNowPlayingStateError({required this.message});
+  const TvSeriesNowPlayingStateError({required this.message});
 
   @override
   List<Object?> get props => [message];
@@ -26,7 +26,7 @@ final class TvSeriesNowPlayingStateError extends TvSeriesNowPlayingState {
 final class TvSeriesNowPlayingStateSuccess extends TvSeriesNowPlayingState {
   final List<TvSeries> data;
 
-  TvSeriesNowPlayingStateSuccess({required this.data});
+  const TvSeriesNowPlayingStateSuccess({required this.data});
 
   @override
   List<Object?> get props => [data];

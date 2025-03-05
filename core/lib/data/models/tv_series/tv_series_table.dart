@@ -6,10 +6,15 @@ import 'package:core/domain/entities/tv_series/tv_series_detail.dart';
 import 'package:equatable/equatable.dart';
 
 class TvSeriesTable extends Equatable with ShowTable {
+  @override
   final int id;
+  @override
   final String? title;
+  @override
   final String? posterPath;
+  @override
   final String? overview;
+  @override
   final String? showType;
 
   TvSeriesTable({

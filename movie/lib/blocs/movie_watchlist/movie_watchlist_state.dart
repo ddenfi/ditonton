@@ -1,6 +1,5 @@
 part of 'movie_watchlist_cubit.dart';
 
-
 @immutable
 sealed class MovieWatchlistState extends Equatable {}
 

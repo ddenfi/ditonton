@@ -1,13 +1,10 @@
 import 'package:core/common/failure.dart';
 import 'package:core/core.dart';
-import 'package:core/domain/usecases/get_movie_detail.dart';
 import 'package:core/domain/usecases/get_movie_recommendations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movie/blocs/movie_detail/movie_detail_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/core.dart';
 import 'package:movie/blocs/recommended_movies/recommended_movies_cubit.dart';
 import 'package:dartz/dartz.dart';
 import 'movie_recommendation_cubit_test.mocks.dart';
@@ -36,10 +33,10 @@ void main() {
       return recommendedMovieCubit;
     },
     act: (cubit) => cubit.fetchMoviesRecommendation(tId),
-    expect: () =>
-    [
+    expect: () => [
       RecommendedMoviesStateLoading(),
-    RecommendedMoviesStateSuccess(data: testMovieList)],
+      RecommendedMoviesStateSuccess(data: testMovieList)
+    ],
     verify: (cubit) {
       verify(mockRecommendedMovie.execute(tId));
     },
@@ -53,10 +50,9 @@ void main() {
       return recommendedMovieCubit;
     },
     act: (cubit) => cubit.fetchMoviesRecommendation(tId),
-    expect: () =>
-    [
+    expect: () => [
       RecommendedMoviesStateLoading(),
-       RecommendedMoviesStateError(message: 'Server Failure'),
+      RecommendedMoviesStateError(message: 'Server Failure'),
     ],
     verify: (cubit) {
       verify(mockRecommendedMovie.execute(tId));

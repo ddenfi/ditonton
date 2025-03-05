@@ -11,11 +11,10 @@ import '../blocs/tv_series_now_playing/tv_series_now_playing_cubit.dart';
 import '../blocs/tv_series_popular/tv_series_popular_cubit.dart';
 import '../blocs/tv_series_top_rated/tv_series_top_rated_cubit.dart';
 
-
 class HomeTvSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/home/tv-series';
 
-  const HomeTvSeriesPage();
+  const HomeTvSeriesPage({super.key});
 
   @override
   State<HomeTvSeriesPage> createState() => _HomeTvSeriesPageState();
@@ -136,11 +135,11 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
 class TvSeriesList extends StatelessWidget {
   final List<TvSeries> shows;
 
-  TvSeriesList(this.shows);
+  const TvSeriesList(this.shows, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

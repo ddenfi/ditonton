@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:tv/blocs/tv_series_watchlist/tv_series_watchlist_cubit.dart';
 import 'package:tv/widgets/tv_series_card_list.dart';
 
-
 class TvSeriesWatchlistPage extends StatefulWidget {
   static const ROUTE_NAME = '/tv-series/watchlist';
+
+  const TvSeriesWatchlistPage({super.key});
 
   @override
   _TvSeriesWatchlistPageState createState() => _TvSeriesWatchlistPageState();
@@ -27,6 +28,7 @@ class _TvSeriesWatchlistPageState extends State<TvSeriesWatchlistPage>
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  @override
   void didPopNext() {
     context.read<TvSeriesWatchlistCubit>().fetchWatchlistTvSeries();
   }
@@ -43,7 +45,7 @@ class _TvSeriesWatchlistPageState extends State<TvSeriesWatchlistPage>
           builder: (context, state) {
             switch (state) {
               case TvSeriesWatchlistInitial():
-              return SizedBox();
+                return SizedBox();
               case TvSeriesWatchlistLoading():
                 return Center(
                   child: CircularProgressIndicator(),
@@ -61,7 +63,6 @@ class _TvSeriesWatchlistPageState extends State<TvSeriesWatchlistPage>
                   },
                   itemCount: state.tvSeries.length,
                 );
-
             }
           },
         ),

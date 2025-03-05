@@ -7,10 +7,15 @@ import 'package:equatable/equatable.dart';
 import 'show_table.dart';
 
 class MovieTable extends Equatable with ShowTable {
+  @override
   final int id;
+  @override
   final String? title;
+  @override
   final String? posterPath;
+  @override
   final String? overview;
+  @override
   final String? showType;
 
   MovieTable({

@@ -6,7 +6,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movie/blocs/movie_detail/movie_detail_cubit.dart';
 import 'package:movie/blocs/now_playing_movies/now_playing_movies_cubit.dart';
 
 import 'movie_now_playing_cubit_test.mocks.dart';

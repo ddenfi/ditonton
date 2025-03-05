@@ -36,11 +36,7 @@ class TvSeries extends Equatable {
 
   @override
   String toString() {
-    return 'TvSeries{' +
-        ' adult: $adult,' +
-        ' backdropPath: $backdropPath,' +
-        ' genreIds: $genreIds,' +
-        ' id: $id,' +
+    return 'TvSeries{' ' adult: $adult,' ' backdropPath: $backdropPath,' ' genreIds: $genreIds,' ' id: $id,' +
         ' originCountry: $originCountry,' +
         ' originalLanguage: $originalLanguage,' +
         ' originalName: $originalName,' +

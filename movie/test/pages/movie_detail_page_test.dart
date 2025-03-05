@@ -79,32 +79,32 @@ void main() {
   testWidgets(
       'Watchlist button should dispay check icon when movie is added to wathclist',
       (WidgetTester tester) async {
-        //provide dummy
-        provideDummy<MovieDetailState>(
-            MovieDetailSuccess(movieDetail: testMovieDetail));
-        provideDummy<MovieWatchlistStatusState>(
-            MovieWatchlistStatus(isAddedToWatchlist: true));
-        provideDummy<RecommendedMoviesState>(
-            RecommendedMoviesStateSuccess(data: []));
+    //provide dummy
+    provideDummy<MovieDetailState>(
+        MovieDetailSuccess(movieDetail: testMovieDetail));
+    provideDummy<MovieWatchlistStatusState>(
+        MovieWatchlistStatus(isAddedToWatchlist: true));
+    provideDummy<RecommendedMoviesState>(
+        RecommendedMoviesStateSuccess(data: []));
 
-        // Mocking the Cubit states
-        when(mockMovieDetailCubit.state)
-            .thenReturn(MovieDetailSuccess(movieDetail: testMovieDetail));
-        when(mockMovieDetailCubit.stream).thenAnswer(
-              (_) => Stream.value(MovieDetailSuccess(movieDetail: testMovieDetail)),
-        );
+    // Mocking the Cubit states
+    when(mockMovieDetailCubit.state)
+        .thenReturn(MovieDetailSuccess(movieDetail: testMovieDetail));
+    when(mockMovieDetailCubit.stream).thenAnswer(
+      (_) => Stream.value(MovieDetailSuccess(movieDetail: testMovieDetail)),
+    );
 
-        when(mockMovieWatchlistStatusCubit.state)
-            .thenReturn(MovieWatchlistStatus(isAddedToWatchlist: true));
-        when(mockMovieWatchlistStatusCubit.stream).thenAnswer(
-              (_) => Stream.value(MovieWatchlistStatus(isAddedToWatchlist: true)),
-        );
+    when(mockMovieWatchlistStatusCubit.state)
+        .thenReturn(MovieWatchlistStatus(isAddedToWatchlist: true));
+    when(mockMovieWatchlistStatusCubit.stream).thenAnswer(
+      (_) => Stream.value(MovieWatchlistStatus(isAddedToWatchlist: true)),
+    );
 
-        when(mockRecommendedMoviesCubit.state)
-            .thenReturn(RecommendedMoviesStateSuccess(data: []));
-        when(mockRecommendedMoviesCubit.stream).thenAnswer(
-              (_) => Stream.value(RecommendedMoviesStateSuccess(data: [])),
-        );
+    when(mockRecommendedMoviesCubit.state)
+        .thenReturn(RecommendedMoviesStateSuccess(data: []));
+    when(mockRecommendedMoviesCubit.stream).thenAnswer(
+      (_) => Stream.value(RecommendedMoviesStateSuccess(data: [])),
+    );
 
     final watchlistButtonIcon = find.byIcon(Icons.check);
 
@@ -116,32 +116,32 @@ void main() {
   testWidgets(
       'Watchlist button should display Snackbar when added to watchlist',
       (WidgetTester tester) async {
-        //provide dummy
-        provideDummy<MovieDetailState>(
-            MovieDetailSuccess(movieDetail: testMovieDetail));
-        provideDummy<MovieWatchlistStatusState>(
-            MovieWatchlistStatus(isAddedToWatchlist: false));
-        provideDummy<RecommendedMoviesState>(
-            RecommendedMoviesStateSuccess(data: []));
+    //provide dummy
+    provideDummy<MovieDetailState>(
+        MovieDetailSuccess(movieDetail: testMovieDetail));
+    provideDummy<MovieWatchlistStatusState>(
+        MovieWatchlistStatus(isAddedToWatchlist: false));
+    provideDummy<RecommendedMoviesState>(
+        RecommendedMoviesStateSuccess(data: []));
 
-        // Mocking the Cubit states
-        when(mockMovieDetailCubit.state)
-            .thenReturn(MovieDetailSuccess(movieDetail: testMovieDetail));
-        when(mockMovieDetailCubit.stream).thenAnswer(
-              (_) => Stream.value(MovieDetailSuccess(movieDetail: testMovieDetail)),
-        );
+    // Mocking the Cubit states
+    when(mockMovieDetailCubit.state)
+        .thenReturn(MovieDetailSuccess(movieDetail: testMovieDetail));
+    when(mockMovieDetailCubit.stream).thenAnswer(
+      (_) => Stream.value(MovieDetailSuccess(movieDetail: testMovieDetail)),
+    );
 
-        when(mockMovieWatchlistStatusCubit.state)
-            .thenReturn(MovieWatchlistStatus(isAddedToWatchlist: false));
-        when(mockMovieWatchlistStatusCubit.stream).thenAnswer(
-              (_) => Stream.value(MovieWatchlistStatus(isAddedToWatchlist: false)),
-        );
+    when(mockMovieWatchlistStatusCubit.state)
+        .thenReturn(MovieWatchlistStatus(isAddedToWatchlist: false));
+    when(mockMovieWatchlistStatusCubit.stream).thenAnswer(
+      (_) => Stream.value(MovieWatchlistStatus(isAddedToWatchlist: false)),
+    );
 
-        when(mockRecommendedMoviesCubit.state)
-            .thenReturn(RecommendedMoviesStateSuccess(data: []));
-        when(mockRecommendedMoviesCubit.stream).thenAnswer(
-              (_) => Stream.value(RecommendedMoviesStateSuccess(data: [])),
-        );
+    when(mockRecommendedMoviesCubit.state)
+        .thenReturn(RecommendedMoviesStateSuccess(data: []));
+    when(mockRecommendedMoviesCubit.stream).thenAnswer(
+      (_) => Stream.value(RecommendedMoviesStateSuccess(data: [])),
+    );
     when(mockMovieWatchlistStatusCubit.watchlistMessage)
         .thenReturn('Added to Watchlist');
 
@@ -161,32 +161,32 @@ void main() {
   testWidgets(
       'Watchlist button should display AlertDialog when add to watchlist failed',
       (WidgetTester tester) async {
-        //provide dummy
-        provideDummy<MovieDetailState>(
-            MovieDetailSuccess(movieDetail: testMovieDetail));
-        provideDummy<MovieWatchlistStatusState>(
-            MovieWatchlistStatus(isAddedToWatchlist: false));
-        provideDummy<RecommendedMoviesState>(
-            RecommendedMoviesStateSuccess(data: []));
+    //provide dummy
+    provideDummy<MovieDetailState>(
+        MovieDetailSuccess(movieDetail: testMovieDetail));
+    provideDummy<MovieWatchlistStatusState>(
+        MovieWatchlistStatus(isAddedToWatchlist: false));
+    provideDummy<RecommendedMoviesState>(
+        RecommendedMoviesStateSuccess(data: []));
 
-        // Mocking the Cubit states
-        when(mockMovieDetailCubit.state)
-            .thenReturn(MovieDetailSuccess(movieDetail: testMovieDetail));
-        when(mockMovieDetailCubit.stream).thenAnswer(
-              (_) => Stream.value(MovieDetailSuccess(movieDetail: testMovieDetail)),
-        );
+    // Mocking the Cubit states
+    when(mockMovieDetailCubit.state)
+        .thenReturn(MovieDetailSuccess(movieDetail: testMovieDetail));
+    when(mockMovieDetailCubit.stream).thenAnswer(
+      (_) => Stream.value(MovieDetailSuccess(movieDetail: testMovieDetail)),
+    );
 
-        when(mockMovieWatchlistStatusCubit.state)
-            .thenReturn(MovieWatchlistStatus(isAddedToWatchlist: false));
-        when(mockMovieWatchlistStatusCubit.stream).thenAnswer(
-              (_) => Stream.value(MovieWatchlistStatus(isAddedToWatchlist: false)),
-        );
+    when(mockMovieWatchlistStatusCubit.state)
+        .thenReturn(MovieWatchlistStatus(isAddedToWatchlist: false));
+    when(mockMovieWatchlistStatusCubit.stream).thenAnswer(
+      (_) => Stream.value(MovieWatchlistStatus(isAddedToWatchlist: false)),
+    );
 
-        when(mockRecommendedMoviesCubit.state)
-            .thenReturn(RecommendedMoviesStateSuccess(data: []));
-        when(mockRecommendedMoviesCubit.stream).thenAnswer(
-              (_) => Stream.value(RecommendedMoviesStateSuccess(data: [])),
-        );
+    when(mockRecommendedMoviesCubit.state)
+        .thenReturn(RecommendedMoviesStateSuccess(data: []));
+    when(mockRecommendedMoviesCubit.stream).thenAnswer(
+      (_) => Stream.value(RecommendedMoviesStateSuccess(data: [])),
+    );
     when(mockMovieWatchlistStatusCubit.watchlistMessage).thenReturn('Failed');
 
     final watchlistButton = find.byType(FilledButton);

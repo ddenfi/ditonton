@@ -1,4 +1,3 @@
-
 import 'package:core/core.dart';
 import 'package:core/domain/entities/movie.dart';
 import 'package:core/domain/usecases/get_top_rated_movies.dart';

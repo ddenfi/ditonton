@@ -8,11 +8,12 @@ final class MovieDetailInitial extends MovieDetailState {
   List<Object?> get props => [];
 }
 
-final class MovieDetailLoading extends MovieDetailState{
+final class MovieDetailLoading extends MovieDetailState {
   @override
   List<Object?> get props => [];
 }
-final class MovieDetailError extends MovieDetailState{
+
+final class MovieDetailError extends MovieDetailState {
   final String message;
 
   MovieDetailError({required this.message});
@@ -21,12 +22,11 @@ final class MovieDetailError extends MovieDetailState{
   List<Object?> get props => [message];
 }
 
-final class MovieDetailSuccess extends MovieDetailState{
+final class MovieDetailSuccess extends MovieDetailState {
   final MovieDetail movieDetail;
 
   MovieDetailSuccess({required this.movieDetail});
 
   @override
   List<Object?> get props => [movieDetail];
-
 }

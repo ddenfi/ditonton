@@ -1,9 +1,10 @@
-
 import 'package:core/common/constants.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
   static const ROUTE_NAME = '/about';
+
+  const AboutPage({super.key});
 
   @override
   Widget build(BuildContext context) {

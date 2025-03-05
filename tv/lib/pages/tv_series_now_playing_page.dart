@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:tv/blocs/tv_series_now_playing/tv_series_now_playing_cubit.dart';
 import 'package:tv/widgets/tv_series_card_list.dart';
 
-
 class TvSeriesNowPlayingPage extends StatefulWidget {
   static const ROUTE_NAME = '/tv-series/now-playing';
+
+  const TvSeriesNowPlayingPage({super.key});
 
   @override
   _TvSeriesNowPlayingPageState createState() => _TvSeriesNowPlayingPageState();

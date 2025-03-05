@@ -6,7 +6,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movie/blocs/movie_detail/movie_detail_cubit.dart';
 import 'package:movie/blocs/popular_movies/popular_movies_cubit.dart';
 
 import 'movie_popular_cubit_test.mocks.dart';
@@ -24,7 +23,6 @@ void main() {
   test('initial state should be empty', () {
     expect(popularMoviesCubit.state, PopularMoviesInitial());
   });
-
 
   blocTest<PopularMoviesCubit, PopularMoviesState>(
     'Should emit [Loading, Success] when data of popular movie  is gotten successfully',

@@ -1,13 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:core/common/failure.dart';
 import 'package:core/core.dart';
-import 'package:core/core.dart';
-import 'package:core/domain/usecases/get_movie_detail.dart';
-import 'package:core/domain/usecases/get_movie_recommendations.dart';
-import 'package:core/domain/usecases/get_now_playing_movies.dart';
-import 'package:core/domain/usecases/get_popular_movies.dart';
-import 'package:core/domain/usecases/get_watchlist_movies.dart';
-import 'package:core/domain/usecases/search_movies.dart';
 import 'package:core/domain/usecases/tv_series/get_watchlist_tv_series.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';

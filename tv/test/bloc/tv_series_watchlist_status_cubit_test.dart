@@ -1,7 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:core/common/failure.dart';
 import 'package:core/core.dart';
-import 'package:core/domain/entities/tv_series/tv_series_detail.dart';
 import 'package:core/domain/usecases/tv_series/get_watchlist_tv_series_status.dart';
 import 'package:core/domain/usecases/tv_series/remove_watchlist_tv_series.dart';
 import 'package:core/domain/usecases/tv_series/save_watchlist_tv_series.dart';
@@ -73,7 +72,7 @@ void main() {
     'Should execute remove watchlist when function called',
     build: () {
       when(mockRemoveWatchlistTvSeries.execute(testTvSeriesDetail)).thenAnswer(
-            (_) async => Right("Remove to Watchlist"),
+        (_) async => Right("Remove to Watchlist"),
       );
       when(mockWatchlistStatusTvSeries.execute(tId))
           .thenAnswer((_) async => false);

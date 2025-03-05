@@ -31,7 +31,7 @@ class TvSeriesDetailResponse extends Equatable {
   final double? voteAverage;
   final int? voteCount;
 
-  TvSeriesDetailResponse({
+  const TvSeriesDetailResponse({
     this.adult,
     this.backdropPath,
     this.episodeRunTime,
@@ -104,7 +104,7 @@ class TvSeriesDetailResponse extends Equatable {
         backdropPath: backdropPath,
         adult: adult,
         episodeRunTime: episodeRunTime,
-        genres: this.genres?.map((e) => e.toEntity()).toList(),
+        genres: genres?.map((e) => e.toEntity()).toList(),
         homepage: homepage,
         inProduction: inProduction,
         languages: languages,
@@ -314,7 +314,7 @@ class GenreModel extends Equatable {
   final int? id;
   final String? name;
 
-  GenreModel({
+  const GenreModel({
     this.id,
     this.name,
   });
@@ -519,7 +519,7 @@ class Season extends Equatable {
   final int? seasonNumber;
   final double? voteAverage;
 
-  Season({
+  const Season({
     this.airDate,
     this.episodeCount,
     this.id,
